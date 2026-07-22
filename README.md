@@ -5,7 +5,7 @@
 ### Yayına Hazır İçerik Deposu / Publish-Ready Content Repository
 
 [![Type](https://img.shields.io/badge/type-Documentation-informational?style=for-the-badge)](#)
-[![Format](https://img.shields.io/badge/format-HTML%20%7C%20PDF%20%7C%20DOCX%20%7C%20Markdown%20%7C%20more-E34F26?style=for-the-badge&logo=html5&logoColor=white)](#)
+[![Format](https://img.shields.io/badge/format-HTML%20%7C%20PDF%20%7C%20DOCX%20%7C%20XLSX%20%7C%20more-E34F26?style=for-the-badge&logo=html5&logoColor=white)](#)
 &nbsp;
 
 
