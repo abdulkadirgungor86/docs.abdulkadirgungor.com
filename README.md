@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📦 Docs Hub
+# &#x200B;📦 Docs Hub
 
 ### Yayına Hazır İçerik Deposu / Publish-Ready Content Repository
 
