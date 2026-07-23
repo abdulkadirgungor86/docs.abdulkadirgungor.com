@@ -114,9 +114,9 @@
 
 </div>
 
-[🇹🇷] Depo, **GitHub Pages** üzerinden `docs.abdulkadirgungor.com` alan adıyla statik olarak yayınlanır. Her belgeye, uygulamanın mağaza kaydından veya uygulama içinden aşağıdaki gibi bir URL şablonuyla doğrudan bağlantı verilebilir:
+[🇹🇷] Depo, web sunucu üzerinden `docs.abdulkadirgungor.com` alan adıyla otomatik olarak yayınlanır. Her belgeye, uygulamanın mağaza kaydından veya uygulama içinden aşağıdaki gibi bir URL şablonuyla doğrudan bağlantı verilebilir:
 
-[🇬🇧] *The repository is served as a static site via **GitHub Pages** under the `docs.abdulkadirgungor.com` domain. Each document can be linked directly from the app's store listing or from within the app using a URL pattern like the following:*
+[🇬🇧] The repository is automatically published via the web server under the domain  `docs.abdulkadirgungor.com`. Each document can be linked directly from the app's store listing or from within the app using a URL pattern like the following:*
 
 ```
 https://docs.abdulkadirgungor.com/apps/<platform>/<app-name>/<document>.html
