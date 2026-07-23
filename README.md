@@ -126,30 +126,6 @@ https://docs.abdulkadirgungor.com/apps/android/app-name/privacy-policy.html
 ```
 
 ---
-
-<div align="center">
-
-## ➕ Yeni İçerik Ekleme / Adding New Content
-
-</div>
-
-
-[🇹🇷]
-
-1. Uygulamaya ait bir belge ekleniyorsa, ilgili platform klasörüne (`apps/android/`, `apps/appstore/`, `apps/windows/`, `apps/linux/`) uygulama adıyla yeni bir alt klasör açın; uygulama dışı bir içerikse konusuna uygun bir klasör oluşturun.
-2. İhtiyaç duyulan `.html` belgelerini bu klasöre ekleyin.
-3. Belgeleri Türkçe ve İngilizce içerecek şekilde (bu README'deki gibi) hazırlayın.
-4. Depoyu güncelleyin; GitHub Pages değişiklikleri otomatik olarak yayınlar.
-
-[🇬🇧]
-
-1. *If adding an application document, create a new subfolder named after the app inside the relevant platform folder (`apps/android/`, `apps/appstore/`, `apps/windows/`, `apps/linux/`); for non-application content, create a folder suited to its subject.*
-2. *Add the required `.html` documents to this folder.*
-3. *Prepare the documents in both Turkish and English (as in this README).*
-4. *Push the changes; GitHub Pages will publish the update automatically.*
-</div>
-
----
 <div align="center">
 
 ## 👤 İletişim / Contact
