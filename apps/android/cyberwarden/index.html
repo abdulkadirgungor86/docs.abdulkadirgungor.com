@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CyberWarden — docs.abdulkadirgungor.com</title>
+<meta name="description" content="CyberWarden uygulamasına ait kullanım kılavuzu, gizlilik politikası, veri güvenliği bildirimleri ve diğer resmi belgeler." />
+<meta name="author" content="Abdulkadir Güngör" />
+<meta property="og:title" content="CyberWarden — docs.abdulkadirgungor.com" />
+<meta property="og:description" content="CyberWarden uygulamasına ait kullanım kılavuzu, gizlilik politikası, veri güvenliği bildirimleri ve diğer resmi belgeler." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.abdulkadirgungor.com/apps/android/cyberwarden/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231e2a38'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23eef1ec' font-family='serif'%3ED%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --radius:5px;
+    --font-head:'Source Serif 4', Georgia, serif;
+    --font-body:'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+    --font-mono:'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  body[data-theme="light"]{
+    --bg:#eef1ec;
+    --bg-panel:#f7f8f4;
+    --bg-tab:#e2ded0;
+    --ink:#1e2a38;
+    --ink-soft:#4b5563;
+    --line:#c9cabb;
+    --line-strong:#1e2a38;
+    --stamp:#a8382c;
+    --stamp-soft:#a8382c14;
+    --blue:#2b4c7e;
+    --blue-soft:#2b4c7e14;
+    --gold:#8a6d1f;
+    --green:#3a6b4f;
+  }
+
+  body[data-theme="dark"]{
+    --bg:#0e1b2e;
+    --bg-panel:#132441;
+    --bg-tab:#1a3153;
+    --ink:#e7ecf2;
+    --ink-soft:#9fb2c9;
+    --line:#2b466c;
+    --line-strong:#7fa8d9;
+    --stamp:#e0664f;
+    --stamp-soft:#e0664f22;
+    --blue:#7fb3e0;
+    --blue-soft:#7fb3e022;
+    --gold:#d9b65c;
+    --green:#78c39c;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 27px, color-mix(in srgb, var(--line) 55%, transparent) 28px),
+      repeating-linear-gradient(90deg, transparent, transparent 27px, color-mix(in srgb, var(--line) 55%, transparent) 28px);
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    transition:background-color .2s, color .2s;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  body[data-lang="tr"] .en{display:none;}
+  body[data-lang="en"] .tr{display:none;}
+
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;height:auto;display:block;}
+  ::selection{background:var(--stamp);color:#fff;}
+  code{font-family:var(--font-mono);}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--bg-panel);
+    border-bottom:2px solid var(--line-strong);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1080px;margin:0 auto;gap:12px;}
+  .brand{display:flex;align-items:center;gap:9px;min-width:0;}
+  .brand .mark{width:26px;height:26px;border:1.5px solid var(--ink);border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:700;font-size:14px;flex-shrink:0;}
+  .brand .name{font-family:var(--font-mono);font-weight:600;font-size:14.5px;letter-spacing:-0.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .brand .name .dim{color:var(--ink-soft);font-weight:400;}
+
+  nav.links{display:flex;gap:20px;align-items:center;}
+  nav.links a{font-size:13.5px;color:var(--ink-soft);transition:color .15s;white-space:nowrap;font-family:var(--font-mono);}
+  nav.links a:hover{color:var(--stamp);}
+
+  #mnav.open {
+    display: flex !important;
+    border-top: 1px dashed var(--line);
+  }
+
+  .controls{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+
+  .lang-toggle{display:flex;border:1.5px solid var(--ink);border-radius:3px;overflow:hidden;}
+  .lang-toggle button{
+    background:var(--bg-panel);border:0;cursor:pointer;
+    display:flex;align-items:center;gap:4px;
+    padding:6px 8px;font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);
+    transition:.15s;
+  }
+  .lang-toggle button:not(:last-child){border-right:1.5px solid var(--ink);}
+  .lang-toggle button .flag{font-size:15px;line-height:1;}
+  .lang-toggle button.active{background:var(--ink);color:var(--bg-panel);font-weight:700;}
+
+  .theme-toggle{
+    width:34px;height:34px;border-radius:3px;border:1.5px solid var(--ink);
+    background:var(--bg-panel);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:.15s;flex-shrink:0;color:var(--ink);
+  }
+  .theme-toggle svg{width:16px;height:16px;stroke:currentColor;fill:none;}
+
+  .burger{display:none;background:var(--bg-panel);border:1.5px solid var(--ink);border-radius:3px;color:var(--ink);width:36px;height:34px;cursor:pointer;font-size:16px;align-items:center;justify-content:center;flex-shrink:0;}
+
+  .hero{padding:48px 0 56px;}
+  .hero-grid{display:grid;grid-template-columns:1.2fr 0.9fr;gap:44px;align-items:start;}
+
+  .label-line{
+    font-family:var(--font-mono);font-size:11.5px;color:var(--stamp);
+    letter-spacing:.09em;margin-bottom:16px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .label-line::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  h1{
+    font-family:var(--font-head);font-weight:600;
+    font-size:clamp(26px,4.6vw,46px);
+    line-height:1.18; letter-spacing:-0.01em; margin:0 0 20px;
+  }
+  h1 em{font-style:italic;color:var(--stamp);}
+
+  .lede{font-size:16.5px;color:var(--ink-soft);margin:0 0 30px;max-width:560px;}
+
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:11px 18px;border-radius:3px;font-weight:600;font-size:13.5px;font-family:var(--font-mono);
+    border:1.5px solid var(--ink); cursor:pointer; transition:box-shadow .12s, transform .06s;
+    text-align:center;
+  }
+  .btn-primary{background:var(--ink);color:var(--bg-panel);}
+  .btn-primary:hover{box-shadow:3px 3px 0 var(--stamp);transform:translate(-1px,-1px);}
+  .btn-ghost{background:var(--bg-panel);color:var(--ink);}
+  .btn-ghost:hover{box-shadow:3px 3px 0 var(--ink);transform:translate(-1px,-1px);}
+
+  .index-card{
+    background:var(--bg-panel);border:1.5px solid var(--ink);border-radius:2px;
+    padding:0; position:relative; transform:rotate(0.6deg);
+    box-shadow:6px 6px 0 var(--stamp-soft), 6px 6px 0 1.5px var(--line);
+    max-width:100%;
+  }
+  .index-card .ic-top{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:10px 16px;border-bottom:1.5px dashed var(--line-strong);
+    font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-soft);text-transform:uppercase;
+  }
+  .index-card .ic-body{padding:18px 16px 20px;}
+  .ic-row{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12.5px;}
+  .ic-row:last-child{border-bottom:0;}
+  .ic-row .ic-k{font-family:var(--font-mono);color:var(--ink-soft);min-width:100px;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;padding-top:2px;}
+  .ic-row .ic-v{font-family:var(--font-mono);color:var(--ink);word-break:break-all;font-size:12px;}
+  .ic-v .hi{color:var(--stamp);}
+
+  .stamp{
+    position:absolute; top:-14px; right:-10px;
+    width:74px;height:74px;border-radius:50%;
+    border:2px solid var(--stamp); color:var(--stamp);
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    font-family:var(--font-mono);font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    transform:rotate(-11deg); background:color-mix(in srgb, var(--bg-panel) 85%, transparent);
+    line-height:1.25; z-index:2;
+  }
+  .stamp::before{content:"";position:absolute;inset:5px;border:1px solid var(--stamp);border-radius:50%;}
+
+  section{padding:56px 0;border-top:1.5px solid var(--line);}
+  .kicker{font-family:var(--font-mono);font-size:11.5px;color:var(--stamp);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
+  h2{font-family:var(--font-head);font-size:clamp(22px,3vw,29px);font-weight:600;letter-spacing:-0.01em;margin:0 0 14px;}
+  .section-lede{color:var(--ink-soft);max-width:680px;font-size:15px;margin-bottom:32px;}
+
+  .doc-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
+  .doc-links a{
+    display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:12px;
+    border:1.5px solid var(--line-strong);border-radius:3px;padding:8px 12px;color:var(--ink);transition:.15s;
+    background:var(--bg-panel);
+  }
+  .doc-links a:hover{border-color:var(--stamp);color:var(--stamp);box-shadow:2px 2px 0 var(--stamp-soft);}
+  .doc-links a .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .doc-links a.hl-guide .dot{background:var(--blue);}
+  .doc-links a.hl-privacy .dot{background:var(--stamp);}
+  .doc-links a.hl-security .dot{background:var(--gold);}
+  .doc-links a.hl-ad .dot{background:var(--green);}
+  .doc-links a.hl-audience .dot{background:var(--ink-soft);}
+
+  .app-preview{
+    background:var(--bg-panel);border:1.5px solid var(--ink);border-radius:2px;
+    padding:24px;margin-top:24px;
+  }
+  .app-media-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:24px;
+  }
+  .app-icon-img{width:96px;height:96px;border-radius:12px;border:1.5px solid var(--line-strong);object-fit:cover;flex-shrink:0;}
+  .app-screenshots-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:16px;
+    width:100%;
+  }
+  .app-shot-img{max-width:240px;width:100%;border-radius:8px;border:1.5px solid var(--line-strong);box-shadow:4px 4px 0 var(--stamp-soft);}
+
+  footer{border-top:2px solid var(--line-strong);padding:30px 0;}
+  .footer-inner{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;}
+  .footer-brand{font-family:var(--font-mono);color:var(--ink-soft);font-size:12px;}
+  .footer-copy{text-align:right;font-size:12.5px;line-height:1.6;color:var(--ink-soft);font-family:var(--font-mono);}
+  .footer-copy .year-name a{color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:3px;}
+  .footer-copy .year-name a:hover{color:var(--stamp);}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:24px;}
+    nav.links{display:none;}
+    .burger{display:flex;}
+    .footer-inner{flex-direction:column;align-items:flex-start;}
+    .footer-copy{text-align:left;}
+    .index-card{max-width:100%;margin-top:20px;}
+  }
+  @media (max-width:520px){
+    .wrap{padding:0 16px;}
+    .nav{padding:12px 16px;}
+    .hero{padding:32px 0 36px;}
+    section{padding:36px 0;}
+    .brand .name .dim{display:none;}
+    .brand .name{font-size:13px;}
+    .lang-toggle button .code{display:none;}
+    .lang-toggle button{padding:6px 8px;}
+    .lang-toggle button .flag{font-size:16px;}
+    .hero-actions{flex-direction:column;width:100%;}
+    .hero-actions .btn{width:100%;}
+    .doc-links a{width:100%;justify-content:flex-start;}
+    .app-media-container{flex-direction:column;}
+  }
+</style>
+</head>
+<body data-lang="tr" data-theme="light">
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <span class="mark">D</span>
+      <span class="name">docs<span class="dim">.abdulkadirgungor.com/apps/android/cyberwarden</span></span>
+    </div>
+    <nav class="links">
+      <a href="../index.html"><span class="tr">Android Uygulamaları</span><span class="en">Android Apps</span></a>
+      <a href="../../../index.html"><span class="tr">Belge Deposu</span><span class="en">Docs Hub</span> ↩</a>
+    </nav>
+    <div class="controls">
+      <div class="lang-toggle">
+        <button id="btn-tr" class="active" onclick="setLang('tr')"><span class="flag">🇹🇷</span><span class="code">TR</span></button>
+        <button id="btn-en" onclick="setLang('en')"><span class="flag">🇬🇧</span><span class="code">EN</span></button>
+      </div>
+      <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" aria-label="tema değiştir / toggle theme"></button>
+      <button class="burger" onclick="document.getElementById('mnav').classList.toggle('open')" aria-label="menu">☰</button>
+    </div>
+  </div>
+  <nav id="mnav" class="links" style="display:none;flex-direction:column;padding:14px 24px 18px;gap:14px;">
+    <a href="#docs" onclick="document.getElementById('mnav').classList.remove('open')"><span class="tr">Dokümanlar</span><span class="en">Documents</span></a>
+    <a href="https://github.com/abdulkadirgungor86/CyberWarden" target="_blank" rel="noopener"><span class="tr">GitHub Deposu</span><span class="en">GitHub Repo</span> ↗</a>
+    <a href="../index.html" onclick="document.getElementById('mnav').classList.remove('open')"><span class="tr">Android Uygulamaları</span><span class="en">Android Apps</span></a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" style="border-top:0;">
+    <div class="wrap">
+      <div class="label-line">
+        <span class="tr">UYGULAMA DOKÜMANTASYONU · /cyberwarden/</span><span class="en">APPLICATION DOCUMENTS · /cyberwarden/</span>
+      </div>
+
+      <div class="hero-grid">
+        <div>
+          <h1>
+            <span class="tr">🛡️ CyberWarden <em>Resmi</em> Dokümantasyon Merkezi</span>
+            <span class="en">🛡️ CyberWarden <em>Official</em> Documentation Hub</span>
+          </h1>
+
+          <p class="lede">
+            <span class="tr">CyberWarden, Android cihazlarda erişilebilirlik davranışlarını ve ağ trafiğini gerçek zamanlı izleyen açık kaynaklı bir güvenlik uygulamasıdır. Tüm kullanım kılavuzlarına ve politikalara buradan erişebilirsiniz.</span>
+            <span class="en">CyberWarden is an open-source security application for Android that monitors accessibility behaviors and network traffic in real time. Access all user guides and policies here.</span>
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#docs">
+              <span class="tr">Belgelere Göz At</span><span class="en">Explore Documents</span> ↓
+            </a>
+            <a class="btn btn-ghost" href="https://github.com/abdulkadirgungor86/CyberWarden" target="_blank" rel="noopener">
+              📂 <span class="tr">GitHub Reposu</span><span class="en">GitHub Repo</span> ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="index-card">
+          <div class="stamp"><span class="tr">Açık<br/>Kaynak</span><span class="en">Open<br/>Source</span></div>
+          <div class="ic-top">
+            <span class="tr">Proje Kimliği</span><span class="en">Project Specs</span>
+            <span>v1.0.0</span>
+          </div>
+          <div class="ic-body">
+            <div class="ic-row"><span class="ic-k"><span class="tr">Geliştirici</span><span class="en">Developer</span></span><span class="ic-v">Abdulkadir Güngör</span></div>
+            <div class="ic-row"><span class="ic-k"><span class="tr">Dil / UI</span><span class="en">Lang / UI</span></span><span class="ic-v">Kotlin · Jetpack Compose</span></div>
+            <div class="ic-row"><span class="ic-k"><span class="tr">Mimari</span><span class="en">Architecture</span></span><span class="ic-v">MVVM + Repository + Room</span></div>
+            <div class="ic-row"><span class="ic-k"><span class="tr">Min SDK</span><span class="en">Min SDK</span></span><span class="ic-v">26 (Android 8.0)</span></div>
+            <div class="ic-row"><span class="ic-k">GitHub</span><span class="ic-v"><a href="https://github.com/abdulkadirgungor86/CyberWarden" target="_blank" class="hi">abdulkadirgungor86/CyberWarden</a></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="docs">
+    <div class="wrap">
+      <div class="kicker">📜 <span class="tr">Resmi Belgeler</span><span class="en">Official Documents</span></div>
+      <h2><span class="tr">Kullanım Belgeleri ve Politikalar</span><span class="en">Usage Guides and Policies</span></h2>
+      <p class="section-lede">
+        <span class="tr">Aşağıdaki bağlantılar üzerinden CyberWarden uygulamasının detaylı kullanım kılavuzuna, veri güvenlik şartlarına, gizlilik politikasına, reklam politikasına ve hedef kitle beyanına ulaşabilirsiniz.</span>
+        <span class="en">Through the links below, you can access CyberWarden's detailed user guide, data security terms, privacy policy, ad policy, and target audience statement.</span>
+      </p>
+
+      <div class="doc-links">
+        <a class="hl-guide" href="user-guide.html">
+          <span class="dot"></span><span class="tr">Kullanım Kılavuzu</span><span class="en">User Guide</span>
+        </a>
+        <a class="hl-privacy" href="privacy-policy.html">
+          <span class="dot"></span><span class="tr">Gizlilik Politikası</span><span class="en">Privacy Policy</span>
+        </a>
+        <a class="hl-security" href="data-security.html">
+          <span class="dot"></span><span class="tr">Veri Güvenliği</span><span class="en">Data Security</span>
+        </a>
+        <a class="hl-ad" href="ad-policy.html">
+          <span class="dot"></span><span class="tr">Reklam Politikası</span><span class="en">Ad Policy</span>
+        </a>
+        <a class="hl-audience" href="target-audience.html">
+          <span class="dot"></span><span class="tr">Hedef Kitle</span><span class="en">Target Audience</span>
+        </a>
+      </div>
+
+      <div class="app-preview">
+        <div class="app-media-container">
+          <img class="app-icon-img" src="images/cyberwarden-android-icon.png" alt="CyberWarden Icon" />
+          <div>
+            <h3>CyberWarden — Real-Time Permission & Network Security Monitor</h3>
+            <p class="tr" style="color:var(--ink-soft); font-size:14px;">
+              CyberWarden, ön plandaki uygulama değişikliklerini, erişilebilirlik izin kullanım durumlarını ve yerel VPN servisi üzerinden ağ trafiğini arka planda sürekli takip eder. Canlı veriler (Erişim Kayıtları ve Ağ İzleme) son <strong>3 günlük</strong> veriyi gösterir, tüm veriler <strong>haftalık olarak otomatik yedeklenir</strong> ve manuel/CSV dışa aktarım seçenekleri sunar.
+            </p>
+            <p class="en" style="color:var(--ink-soft); font-size:14px;">
+              CyberWarden continuously monitors foreground app changes, accessibility permission usage, and network traffic via a local VPN service. Live screens show the last <strong>3 days</strong> of data, while all logs are <strong>automatically backed up weekly</strong> with manual/CSV export support.
+            </p>
+          </div>
+          <div class="app-screenshots-grid">
+            <img class="app-shot-img" src="images/cyberwarden-android-dashboard.png" alt="CyberWarden Dashboard Screenshot" />
+            <img class="app-shot-img" src="images/cyberwarden-android-accesslogs.png" alt="CyberWarden Access Logs Screenshot" />
+            <img class="app-shot-img" src="images/cyberwarden-android-network.png" alt="CyberWarden Network Screenshot" />
+            <img class="app-shot-img" src="images/cyberwarden-android-network-2.png" alt="CyberWarden Network Filter Screenshot" />
+            <img class="app-shot-img" src="images/cyberwarden-android-backup.png" alt="CyberWarden Backup Screenshot" />
+            <img class="app-shot-img" src="images/cyberwarden-android-about.png" alt="CyberWarden About Screenshot" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-brand">docs.abdulkadirgungor.com/apps/android/cyberwarden</div>
+    <div class="footer-copy">
+      <span class="year-name">2026 © <a href="https://abdulkadirgungor.com/" target="_blank" rel="noopener" class="tr">Abdulkadir Güngör</a><a href="https://abdulkadirgungor.com/en/" target="_blank" rel="noopener" class="en">Abdulkadir Güngör</a></span>
+      <span class="tr">Tüm hakları saklıdır</span>
+      <span class="en">All rights reserved</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang){
+    document.body.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+    document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    try { localStorage.setItem('docshub-lang', lang); } catch(e) {}
+  }
+  function toggleTheme(){
+    var current = document.body.getAttribute('data-theme');
+    setTheme(current === 'dark' ? 'light' : 'dark');
+  }
+  var ICON_SUN = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"></circle><line x1="12" y1="2.5" x2="12" y2="5.2"></line><line x1="12" y1="18.8" x2="12" y2="21.5"></line><line x1="2.5" y1="12" x2="5.2" y2="12"></line><line x1="18.8" y1="12" x2="21.5" y2="12"></line><line x1="5.1" y1="5.1" x2="7" y2="7"></line><line x1="17" y1="17" x2="18.9" y2="18.9"></line><line x1="18.9" y1="5.1" x2="17" y2="7"></line><line x1="7" y1="17" x2="5.1" y2="18.9"></line></svg>';
+  var ICON_MOON = '<svg viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"></path></svg>';
+  function setTheme(theme){
+    document.body.setAttribute('data-theme', theme);
+    document.getElementById('theme-btn').innerHTML = theme === 'dark' ? ICON_MOON : ICON_SUN;
+    try { localStorage.setItem('docshub-theme', theme); } catch(e) {}
+  }
+  (function(){
+    var savedLang = null, savedTheme = null;
+    try { savedLang = localStorage.getItem('docshub-lang'); } catch(e) {}
+    try { savedTheme = localStorage.getItem('docshub-theme'); } catch(e) {}
+    setLang(savedLang || 'tr');
+    setTheme(savedTheme || 'light');
+  })();
+</script>
+
+</body>
+</html>

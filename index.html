@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Docs Hub — Abdulkadir Güngör</title>
+<meta name="description" content="Abdulkadir Güngör tarafından hazırlanan, yayına hazır her türlü içeriğin barındırıldığı merkezi belge deposu." />
+<meta name="author" content="Abdulkadir Güngör" />
+<meta property="og:title" content="Docs Hub — docs.abdulkadirgungor.com" />
+<meta property="og:description" content="Abdulkadir Güngör tarafından hazırlanan, yayına hazır her türlü içeriğin barındırıldığı merkezi belge deposu." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.abdulkadirgungor.com/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231e2a38'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23eef1ec' font-family='serif'%3ED%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --radius:5px;
+    --font-head:'Source Serif 4', Georgia, serif;
+    --font-body:'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+    --font-mono:'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  body[data-theme="light"]{
+    --bg:#eef1ec;
+    --bg-panel:#f7f8f4;
+    --bg-tab:#e2ded0;
+    --ink:#1e2a38;
+    --ink-soft:#4b5563;
+    --line:#c9cabb;
+    --line-strong:#1e2a38;
+    --stamp:#a8382c;
+    --stamp-soft:#a8382c14;
+    --blue:#2b4c7e;
+    --blue-soft:#2b4c7e14;
+    --gold:#8a6d1f;
+    --green:#3a6b4f;
+  }
+
+  body[data-theme="dark"]{
+    --bg:#0e1b2e;
+    --bg-panel:#132441;
+    --bg-tab:#1a3153;
+    --ink:#e7ecf2;
+    --ink-soft:#9fb2c9;
+    --line:#2b466c;
+    --line-strong:#7fa8d9;
+    --stamp:#e0664f;
+    --stamp-soft:#e0664f22;
+    --blue:#7fb3e0;
+    --blue-soft:#7fb3e022;
+    --gold:#d9b65c;
+    --green:#78c39c;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 27px, color-mix(in srgb, var(--line) 55%, transparent) 28px),
+      repeating-linear-gradient(90deg, transparent, transparent 27px, color-mix(in srgb, var(--line) 55%, transparent) 28px);
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    transition:background-color .2s, color .2s;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  body[data-lang="tr"] .en{display:none;}
+  body[data-lang="en"] .tr{display:none;}
+
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;height:auto;display:block;}
+  ::selection{background:var(--stamp);color:#fff;}
+  code{font-family:var(--font-mono);}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--bg-panel);
+    border-bottom:2px solid var(--line-strong);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1080px;margin:0 auto;gap:12px;}
+  .brand{display:flex;align-items:center;gap:9px;min-width:0;}
+  .brand .mark{width:26px;height:26px;border:1.5px solid var(--ink);border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:700;font-size:14px;flex-shrink:0;}
+  .brand .name{font-family:var(--font-mono);font-weight:600;font-size:14.5px;letter-spacing:-0.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .brand .name .dim{color:var(--ink-soft);font-weight:400;}
+
+  nav.links{display:flex;gap:20px;align-items:center;}
+  nav.links a{font-size:13.5px;color:var(--ink-soft);transition:color .15s;white-space:nowrap;font-family:var(--font-mono);}
+  nav.links a:hover{color:var(--stamp);}
+
+  /* Mobil Menü Stil Düzeltmesi */
+  #mnav.open {
+    display: flex !important;
+    border-top: 1px dashed var(--line);
+  }
+
+  .controls{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+
+  .lang-toggle{display:flex;border:1.5px solid var(--ink);border-radius:3px;overflow:hidden;}
+  .lang-toggle button{
+    background:var(--bg-panel);border:0;cursor:pointer;
+    display:flex;align-items:center;gap:4px;
+    padding:6px 8px;font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);
+    transition:.15s;
+  }
+  .lang-toggle button:not(:last-child){border-right:1.5px solid var(--ink);}
+  .lang-toggle button .flag{font-size:15px;line-height:1;}
+  .lang-toggle button.active{background:var(--ink);color:var(--bg-panel);font-weight:700;}
+
+  .theme-toggle{
+    width:34px;height:34px;border-radius:3px;border:1.5px solid var(--ink);
+    background:var(--bg-panel);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:.15s;flex-shrink:0;color:var(--ink);
+  }
+  .theme-toggle svg{width:16px;height:16px;stroke:currentColor;fill:none;}
+
+  .burger{display:none;background:var(--bg-panel);border:1.5px solid var(--ink);border-radius:3px;color:var(--ink);width:36px;height:34px;cursor:pointer;font-size:16px;align-items:center;justify-content:center;flex-shrink:0;}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:60px 0 56px;}
+  .hero-grid{display:grid;grid-template-columns:1.2fr 0.9fr;gap:44px;align-items:start;}
+
+  .label-line{
+    font-family:var(--font-mono);font-size:11.5px;color:var(--stamp);
+    letter-spacing:.09em;text-transform:uppercase;margin-bottom:16px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .label-line::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  h1{
+    font-family:var(--font-head);font-weight:600;
+    font-size:clamp(26px,4.6vw,46px);
+    line-height:1.18; letter-spacing:-0.01em; margin:0 0 20px;
+  }
+  h1 em{font-style:italic;color:var(--stamp);}
+
+  .lede{font-size:16.5px;color:var(--ink-soft);margin:0 0 30px;max-width:560px;}
+
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:11px 18px;border-radius:3px;font-weight:600;font-size:13.5px;font-family:var(--font-mono);
+    border:1.5px solid var(--ink); cursor:pointer; transition:box-shadow .12s, transform .06s;
+    text-align:center;
+  }
+  .btn-primary{background:var(--ink);color:var(--bg-panel);}
+  .btn-primary:hover{box-shadow:3px 3px 0 var(--stamp);transform:translate(-1px,-1px);}
+  .btn-ghost{background:var(--bg-panel);color:var(--ink);}
+  .btn-ghost:hover{box-shadow:3px 3px 0 var(--ink);transform:translate(-1px,-1px);}
+
+  .format-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
+  .format-row .fmt-label{margin-right:2px;}
+  .tag{border:1px solid var(--line-strong);padding:3px 8px;border-radius:2px;color:var(--ink);}
+  .tag.more{color:var(--blue);border-color:var(--blue);}
+
+  .index-card{
+    background:var(--bg-panel);border:1.5px solid var(--ink);border-radius:2px;
+    padding:0; position:relative; transform:rotate(0.6deg);
+    box-shadow:6px 6px 0 var(--stamp-soft), 6px 6px 0 1.5px var(--line);
+    max-width:100%;
+  }
+  .index-card .ic-top{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:10px 16px;border-bottom:1.5px dashed var(--line-strong);
+    font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-soft);text-transform:uppercase;
+  }
+  .index-card .ic-body{padding:18px 16px 20px;}
+  .ic-row{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12.5px;}
+  .ic-row:last-child{border-bottom:0;}
+  .ic-row .ic-k{font-family:var(--font-mono);color:var(--ink-soft);min-width:76px;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;padding-top:2px;}
+  .ic-row .ic-v{font-family:var(--font-mono);color:var(--ink);word-break:break-all;font-size:12px;}
+  .ic-v .hi{color:var(--stamp);}
+
+  .stamp{
+    position:absolute; top:-14px; right:-10px;
+    width:74px;height:74px;border-radius:50%;
+    border:2px solid var(--stamp); color:var(--stamp);
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    font-family:var(--font-mono);font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    transform:rotate(-11deg); background:color-mix(in srgb, var(--bg-panel) 85%, transparent);
+    line-height:1.25; z-index:2;
+  }
+  .stamp::before{content:"";position:absolute;inset:5px;border:1px solid var(--stamp);border-radius:50%;}
+
+  /* ---------- Sections ---------- */
+  section{padding:56px 0;border-top:1.5px solid var(--line);}
+  .kicker{font-family:var(--font-mono);font-size:11.5px;color:var(--stamp);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
+  h2{font-family:var(--font-head);font-size:clamp(22px,3vw,29px);font-weight:600;letter-spacing:-0.01em;margin:0 0 14px;}
+  .section-lede{color:var(--ink-soft);max-width:680px;font-size:15px;margin-bottom:32px;}
+
+  /* ---------- About ---------- */
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:26px;align-items:start;}
+  .card{background:var(--bg-panel);border:1px solid var(--line-strong);border-radius:var(--radius);padding:24px;}
+  .about-grid p{color:var(--ink);opacity:.88;font-size:15px;}
+  .fact-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0;}
+  .fact-list li{display:flex;gap:12px;font-size:13.5px;color:var(--ink-soft);align-items:baseline;flex-wrap:wrap;padding:11px 0;border-bottom:1px solid var(--line);}
+  .fact-list li:last-child{border-bottom:0;}
+  .fact-list .k{color:var(--ink-soft);font-weight:600;min-width:100px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;}
+  .fact-list .v{color:var(--ink);font-family:var(--font-mono);font-size:12.5px;word-break:break-word;}
+
+  /* ---------- Folder tree ---------- */
+  .tree-wrap{position:relative;margin-top:8px;}
+  .tab{
+    display:inline-block;background:var(--bg-tab);border:1.5px solid var(--ink);border-bottom:none;
+    border-radius:5px 5px 0 0; padding:7px 18px; font-family:var(--font-mono); font-size:12px;
+    color:var(--ink); letter-spacing:.03em; position:relative; top:1.5px;
+  }
+  .tree-panel{background:var(--bg-panel);border:1.5px solid var(--ink);border-radius:0 6px 6px 6px;padding:20px;}
+  .tree{font-family:var(--font-mono);font-size:13px;overflow-x:auto;}
+  .tree ul{list-style:none;margin:0;padding-left:16px;border-left:1px dashed var(--line-strong);}
+  .tree > ul{padding-left:0;border-left:0;}
+  .tree li{margin:7px 0;position:relative;white-space:nowrap;}
+  .folder{color:var(--ink);font-weight:600;}
+  .folder::before{content:"▸ ";color:var(--ink-soft);}
+  .file{color:var(--ink-soft);}
+  .file::before{content:"— ";color:var(--line-strong);}
+  .file.hl-guide{color:var(--blue);}
+  .file.hl-privacy{color:var(--stamp);}
+  .file.hl-security{color:var(--gold);}
+  .file.hl-ad{color:var(--green);}
+  .file.hl-audience{color:var(--ink);text-decoration:none;text-decoration-color:var(--line-strong);}
+
+  /* Tablo mobil kapsayıcısı */
+  .table-responsive { width: 100%; overflow-x: auto; margin-top: 26px; }
+  .doctype-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:480px;}
+  .doctype-table th{text-align:left;color:var(--ink-soft);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.05em;padding:0 0 10px;border-bottom:1.5px solid var(--ink);font-family:var(--font-mono);}
+  .doctype-table td{padding:12px 0;border-bottom:1px solid var(--line);color:var(--ink);opacity:.9;vertical-align:top;}
+  .doctype-table tr:last-child td{border-bottom:0;}
+  .doctype-table code{font-size:12.5px;}
+
+  .platform-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px;}
+  .platform-pill{display:flex;align-items:center;gap:7px;background:var(--bg-panel);border:1px solid var(--line-strong);border-radius:3px;padding:9px 14px;font-size:12.5px;font-family:var(--font-mono);color:var(--ink-soft);}
+  .platform-pill b{color:var(--ink);}
+
+  /* ---------- Publishing ---------- */
+  .pub-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .code-card{background:#182636;color:#dbe4ee;border-radius:var(--radius);padding:20px;font-family:var(--font-mono);font-size:12.5px;overflow-x:auto;word-break:break-all;}
+  .code-card .path{color:#9fd6c9;}
+  .code-card .comment{color:#8494a8;}
+
+  /* ---------- Steps ---------- */
+  .steps{display:flex;flex-direction:column;gap:0;margin-top:6px;}
+  .step{display:flex;gap:18px;padding:20px 0;border-top:1px solid var(--line);}
+  .step:first-child{border-top:0;}
+  .step .num{font-family:var(--font-head);font-weight:700;font-size:16px;color:var(--stamp);min-width:32px;flex-shrink:0;}
+  .step p{margin:0;color:var(--ink);opacity:.88;font-size:14.5px;padding-top:2px;}
+
+  /* ---------- Contact ---------- */
+  .contact-card{display:grid;grid-template-columns:auto 1fr;gap:26px;background:var(--bg-panel);border:1px solid var(--line-strong);border-radius:var(--radius);padding:28px;align-items:center;}
+  .avatar{width:82px;height:82px;border-radius:50%;object-fit:cover;border:2px solid var(--ink);flex-shrink:0;}
+  .contact-name{font-family:var(--font-head);font-size:19px;font-weight:600;margin:0 0 4px;}
+  .contact-title{color:var(--ink-soft);font-size:13.5px;margin:0 0 12px;max-width:560px;}
+  .contact-loc{font-size:12px;color:var(--stamp);font-family:var(--font-mono);margin-bottom:14px;letter-spacing:.03em;}
+  .contact-links{display:flex;flex-wrap:wrap;gap:8px;}
+  .contact-links a{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-family:var(--font-mono);background:var(--bg);border:1px solid var(--line-strong);padding:7px 12px;border-radius:3px;transition:.15s;}
+  .contact-links a:hover{border-color:var(--stamp);color:var(--stamp);}
+
+  /* ---------- Footer ---------- */
+  footer{border-top:2px solid var(--line-strong);padding:30px 0;}
+  .footer-inner{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;}
+  .footer-brand{font-family:var(--font-mono);color:var(--ink-soft);font-size:12px;}
+  .footer-copy{text-align:right;font-size:12.5px;line-height:1.6;color:var(--ink-soft);font-family:var(--font-mono);}
+  .footer-copy .year-name a{color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:3px;}
+  .footer-copy .year-name a:hover{color:var(--stamp);}
+
+  /* ---------- Mobil / Responsive Uyarlamalar ---------- */
+  @media (max-width:860px){
+    .about-grid, .pub-grid, .hero-grid{grid-template-columns:1fr;gap:24px;}
+    nav.links{display:none;}
+    .burger{display:flex;}
+    .contact-card{grid-template-columns:1fr;text-align:center;justify-items:center;}
+    .footer-inner{flex-direction:column;align-items:flex-start;}
+    .footer-copy{text-align:left;}
+    .index-card{max-width:100%;margin-top:20px;}
+  }
+  @media (max-width:520px){
+    .wrap{padding:0 16px;}
+    .nav{padding:12px 16px;}
+    .hero{padding:32px 0 36px;}
+    section{padding:36px 0;}
+    .brand .name .dim{display:none;}
+    .brand .name{font-size:13px;}
+    .lang-toggle button .code{display:none;}
+    .lang-toggle button{padding:6px 8px;}
+    .lang-toggle button .flag{font-size:16px;}
+    .hero-actions{flex-direction:column;width:100%;}
+    .hero-actions .btn{width:100%;}
+    .contact-links{justify-content:center;}
+    .contact-links a{width:100%;justify-content:center;}
+  }
+</style>
+</head>
+<body data-lang="tr" data-theme="light">
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <span class="mark">D</span>
+      <span class="name">docs<span class="dim">.abdulkadirgungor.com</span></span>
+    </div>
+    <nav class="links">
+      <a href="#about"><span class="tr">Hakkında</span><span class="en">About</span></a>
+      <a href="#structure"><span class="tr">Yapı</span><span class="en">Structure</span></a>
+      <a href="#publishing"><span class="tr">Yayınlama</span><span class="en">Publishing</span></a>
+      <a href="#contribute"><span class="tr">İçerik Ekleme</span><span class="en">Contributing</span></a>
+      <a href="#contact"><span class="tr">İletişim</span><span class="en">Contact</span></a>
+    </nav>
+    <div class="controls">
+      <div class="lang-toggle">
+        <button id="btn-tr" class="active" onclick="setLang('tr')"><span class="flag">🇹🇷</span><span class="code">TR</span></button>
+        <button id="btn-en" onclick="setLang('en')"><span class="flag">🇬🇧</span><span class="code">EN</span></button>
+      </div>
+      <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" aria-label="tema değiştir / toggle theme"></button>
+      <button class="burger" onclick="document.getElementById('mnav').classList.toggle('open')" aria-label="menu">☰</button>
+    </div>
+  </div>
+  <nav id="mnav" class="links" style="display:none;flex-direction:column;padding:14px 24px 18px;gap:14px;">
+    <a href="#about" onclick="document.getElementById('mnav').classList.remove('open')"><span class="tr">Hakkında</span><span class="en">About</span></a>
+    <a href="#structure" onclick="document.getElementById('mnav').classList.remove('open')"><span class="tr">Yapı</span><span class="en">Structure</span></a>
+    <a href="#publishing" onclick="document.getElementById('mnav').classList.remove('open')"><span class="tr">Yayınlama</span><span class="en">Publishing</span></a>
+    <a href="#contribute" onclick="document.getElementById('mnav').classList.remove('open')"><span class="tr">İçerik Ekleme</span><span class="en">Contributing</span></a>
+    <a href="#contact" onclick="document.getElementById('mnav').classList.remove('open')"><span class="tr">İletişim</span><span class="en">Contact</span></a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" style="border-top:0;">
+    <div class="wrap">
+      <div class="label-line">
+        <span class="tr">Belge Deposu · No. 001</span><span class="en">Document Repository · No. 001</span>
+      </div>
+
+      <div class="hero-grid">
+        <div>
+          <h1>
+            <span class="tr">Abdulkadir Güngör'ün hazırladığı her içerik için <em>tek, sabit</em> bir adres.</span>
+            <span class="en">One <em>stable address</em> for everything Abdulkadir Güngör publishes.</span>
+          </h1>
+
+          <p class="lede">
+            <span class="tr">Bu depo öncelikle uygulamaların kullanıcı kılavuzu, gizlilik politikası ve veri güvenliği bildirimi gibi belgeleri için kuruldu — ama uygulamayla sınırlı değil. Abdulkadir Güngör tarafından hazırlanan, yayına hazır her türlü içerik burada aynı çatı altında, aynı güvenilir bağlantı yapısıyla barındırılabilir.</span>
+            <span class="en">Built first for the documents apps need — user guides, privacy policies, data security notices — this repository isn't limited to apps. Any publish-ready content Abdulkadir Güngör prepares can live here, under the same roof and the same reliable link structure.</span>
+          </p>
+
+          <div class="hero-actions">
+            
+			<a class="btn btn-primary" href="https://github.com/abdulkadirgungor86/docs.abdulkadirgungor.com" target="_blank" rel="noopener">
+              <span class="tr">GitHub'da Görüntüle</span><span class="en">View on GitHub</span> →
+            </a>
+			
+			<a class="btn btn-ghost tr" href="https://abdulkadirgungor.com/" target="_blank" rel="noopener">
+			Geliştirici Web Sitesi
+			</a>
+
+			<a class="btn btn-ghost en" href="https://abdulkadirgungor.com/en" target="_blank" rel="noopener">
+			Developer Website
+			</a>
+
+          </div>
+
+          <div class="format-row">
+            <span class="fmt-label tr">Format:</span><span class="fmt-label en">Format:</span>
+            <span class="tag">HTML</span><span class="tag">PDF</span><span class="tag">DOCX</span><span class="tag">XLSX</span>
+            <span class="tag more tr">ve Başka Formatlar</span>
+            <span class="tag more en">&amp; More</span>
+          </div>
+        </div>
+
+        <div class="index-card">
+          <div class="stamp"><span class="tr">Yayında</span><span class="en">Live</span></div>
+          <div class="ic-top">
+            <span class="tr">Örnek Belge Fişi</span><span class="en">Sample Document Card</span>
+            <span>#0001</span>
+          </div>
+          <div class="ic-body">
+            <div class="ic-row"><span class="ic-k tr">Platform</span><span class="ic-k en" style="display:none">Platform</span><span class="ic-v">Android</span></div>
+            <div class="ic-row"><span class="ic-k tr">Uygulama</span><span class="ic-k en" style="display:none">App</span><span class="ic-v">app-name</span></div>
+            <div class="ic-row"><span class="ic-k tr">Belge</span><span class="ic-k en" style="display:none">Document</span><span class="ic-v">privacy-policy.html</span></div>
+            <div class="ic-row"><span class="ic-k">URL</span><span class="ic-v">docs.abdulkadirgungor.com/<span class="hi">apps/android/app-name/</span>privacy-policy.html</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="kicker">01 <span class="tr">— Genel Bakış</span><span class="en">— Overview</span></div>
+      <h2><span class="tr">Hakkında</span><span class="en">About</span></h2>
+      <div class="about-grid">
+        <div class="card">
+          <p class="tr">Bu depo, yalnızca uygulamalarla sınırlı olmayan, yayına hazır her türlü içeriğin barındırılabileceği genel amaçlı bir platformdur. Şu an için ağırlıklı olarak geliştirilen mobil, masaüstü ve web uygulamalarına ait resmî belgeleri platform bazında düzenli biçimde barındırır. Her belge doğrudan tarayıcıda görüntülenebilecek şekilde <strong>HTML</strong> formatında hazırlanır ve web sunucu üzerinden <strong>online</strong> olarak yayınlanır. Böylece her uygulama; Google Play, App Store, Microsoft Store gibi mağazaların gerektirdiği gizlilik politikası, veri güvenliği beyanı ve diğer belgelere tek, sabit bir bağlantı üzerinden erişim sağlar.</p>
+          <p class="en">This repository is a general-purpose platform for hosting any kind of publish-ready content, not limited to applications. It currently mainly hosts the official documents for developed mobile, desktop and web applications, organized by platform. Every document is prepared in <strong>HTML</strong> format so it can be viewed directly in a browser, and published <strong>online</strong> via web server. This lets each application provide a single, stable URL for the privacy policy, data security notice and other documents required by store guidelines (Google Play, App Store, Microsoft Store, etc.).</p>
+        </div>
+        <div class="card">
+          <ul class="fact-list">
+            <li><span class="k">FORMAT</span><span class="v">HTML · PDF · DOCX · XLSX <span class="tr">+ diğer</span><span class="en">+ more</span></span></li>
+            <li><span class="k tr">ALAN ADI</span><span class="k en" style="display:none">DOMAIN</span><span class="v">docs.abdulkadirgungor.com</span></li>
+            <li><span class="k tr">GELİŞTİRİCİ</span><span class="k en" style="display:none">DEVELOPER</span><span class="v">Abdulkadir Güngör</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRUCTURE -->
+  <section id="structure">
+    <div class="wrap">
+      <div class="kicker">02 <span class="tr">— Klasör Yapısı</span><span class="en">— Folder Structure</span></div>
+      <h2><span class="tr">Belgeler nasıl organize edilir?</span><span class="en">How documents are organized</span></h2>
+      <p class="section-lede">
+        <span class="tr">Uygulamalara ait belgeler, <code>apps → platform → uygulama adı → belge (.html)</code> hiyerarşisiyle organize edilir. Uygulama dışı içerikler için depo kökünde ayrı klasörler açılabilir.</span>
+        <span class="en">Application documents follow an <code>apps → platform → app name → document (.html)</code> hierarchy. Non-application content can live in separate top-level folders.</span>
+      </p>
+
+      <div class="tree-wrap">
+        <div class="tab">apps/</div>
+        <div class="tree-panel">
+          <div class="tree">
+            <ul>
+              <li class="folder">android/
+                <ul>
+                  <li class="folder">app-name/
+                    <ul>
+                      <li class="file">index.html</li>
+                      <li class="file hl-guide">user-guide.html</li>
+                      <li class="file hl-privacy">privacy-policy.html</li>
+                      <li class="file hl-security">data-security.html</li>
+                      <li class="file hl-ad">ad-policy.html</li>
+                      <li class="file hl-audience">target-audience.html</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="folder">appstore/ <span style="color:var(--ink-soft)">…</span></li>
+              <li class="folder">windows/ <span style="color:var(--ink-soft)">…</span></li>
+              <li class="folder">linux/ <span style="color:var(--ink-soft)">…</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="platform-row">
+        <div class="platform-pill"><b>/apps/android/</b> <span class="tr">— Android (Google Play)</span><span class="en">— Android (Google Play)</span></div>
+        <div class="platform-pill"><b>/apps/appstore/</b> <span class="tr">— iOS / macOS (App Store)</span><span class="en">— iOS / macOS (App Store)</span></div>
+        <div class="platform-pill"><b>/apps/windows/</b> <span class="tr">— Windows (Microsoft Store)</span><span class="en">— Windows (Microsoft Store)</span></div>
+        <div class="platform-pill"><b>/apps/linux/</b> — Linux</div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="doctype-table">
+          <thead>
+            <tr><th style="width:36%"><span class="tr">Belge</span><span class="en">Document</span></th><th><span class="tr">Açıklama</span><span class="en">Description</span></th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>user-guide.html</code></td><td><span class="tr">Kurulum, kullanım ve sık sorulan sorular.</span><span class="en">Installation, usage &amp; FAQ.</span></td></tr>
+            <tr><td><code>privacy-policy.html</code></td><td><span class="tr">Toplanan veriler ve kullanıcı hakları.</span><span class="en">Data collected &amp; user rights.</span></td></tr>
+            <tr><td><code>data-security.html</code></td><td><span class="tr">Veri saklama, koruma ve işleme yöntemleri.</span><span class="en">Data storage, protection &amp; processing.</span></td></tr>
+            <tr><td><code>ad-policy.html</code></td><td><span class="tr">Reklam sağlayıcıları ve izin mekanizmaları.</span><span class="en">Ad providers &amp; consent mechanisms.</span></td></tr>
+            <tr><td><code>target-audience.html</code></td><td><span class="tr">Yaş grubu ve uygunluk beyanı.</span><span class="en">Age range &amp; suitability declaration.</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="section-lede" style="margin-top:24px;margin-bottom:0;">
+        <span class="tr">Not: Uygulamalarla ilişkili olmayan içerikler (genel duyurular, kılavuzlar, politika metinleri vb.) <code>apps/</code> dışında, konusuna uygun ayrı klasörler altında barındırılabilir.</span>
+        <span class="en">Note: Content unrelated to applications (announcements, guides, policy texts, etc.) can be hosted outside <code>apps/</code>, under separate folders suited to their subject.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- PUBLISHING -->
+  <section id="publishing">
+    <div class="wrap">
+      <div class="kicker">03 <span class="tr">— Dağıtım</span><span class="en">— Deployment</span></div>
+      <h2><span class="tr">Yayınlama</span><span class="en">Publishing</span></h2>
+      <p class="section-lede">
+        <span class="tr">Depo, <strong>web sunucu</strong> üzerinden <code>docs.abdulkadirgungor.com</code> alan adıyla otomatik olarak yayınlanır. Her belgeye, uygulamanın mağaza kaydından veya uygulama içinden aşağıdaki URL şablonuyla doğrudan bağlantı verilebilir.</span>
+        <span class="en">The repository is automatically published via the <strong>web server</strong> under the domain <code>docs.abdulkadirgungor.com</code>. Each document can be directly linked from the app's store listing or from within the app itself using the following URL template.</span>
+      </p>
+      <div class="pub-grid">
+        <div class="code-card">
+<span class="comment"><span class="tr">// URL şablonu</span><span class="en">// URL pattern</span></span>
+https://docs.abdulkadirgungor.com/<span class="path">apps/&lt;platform&gt;/&lt;app-name&gt;/&lt;document&gt;.html</span>
+        </div>
+        <div class="code-card">
+<span class="comment"><span class="tr">// Örnek</span><span class="en">// Example</span></span>
+https://docs.abdulkadirgungor.com/<span class="path">apps/android/app-name/privacy-policy.html</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTRIBUTING -->
+  <section id="contribute">
+    <div class="wrap">
+      <div class="kicker">04 <span class="tr">— Katkı</span><span class="en">— Contributing</span></div>
+      <h2><span class="tr">Yeni İçerik Ekleme</span><span class="en">Adding New Content</span></h2>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <p><span class="tr">Uygulamaya ait bir belge ekleniyorsa, ilgili platform klasörüne (<code>apps/android/</code>, <code>apps/appstore/</code>, <code>apps/windows/</code>, <code>apps/linux/</code>) uygulama adıyla yeni bir alt klasör açın; uygulama dışı bir içerikse konusuna uygun bir klasör oluşturun.</span>
+          <span class="en">If adding an application document, create a new subfolder named after the app inside the relevant platform folder (<code>apps/android/</code>, <code>apps/appstore/</code>, <code>apps/windows/</code>, <code>apps/linux/</code>); for non-application content, create a folder suited to its subject.</span></p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <p><span class="tr">İhtiyaç duyulan <code>.html</code> belgelerini bu klasöre ekleyin.</span><span class="en">Add the required <code>.html</code> documents to this folder.</span></p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <p><span class="tr">Belgeleri Türkçe ve İngilizce içerecek şekilde hazırlayın.</span><span class="en">Prepare the documents in both Turkish and English.</span></p>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <p><span class="tr">Depoyu güncelleyin — Değişiklikleri otomatik olarak yayınlar.</span><span class="en">Push the changes — It will publish the update automatically.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="kicker">05 <span class="tr">— İletişim</span><span class="en">— Contact</span></div>
+      <h2><span class="tr">Geliştirici</span><span class="en">Developer</span></h2>
+      <div class="contact-card">
+        <img class="avatar" src="https://abdulkadirgungor.com/images/website-abdulkadir-gungor-profil-resmi.jpeg" alt="Abdulkadir Güngör" />
+        <div>
+          <p class="contact-name">Abdulkadir Güngör</p>
+          <p class="contact-title">
+            <span class="tr">Full Stack Geliştirici | Yapay Zeka, Veri Bilimi ve Robotik Uzmanı | Siber Güvenlik, İSG ve İnşaat Yüksek Mühendisi</span>
+            <span class="en">Full Stack Developer | AI, Data Science &amp; Robotics Specialist | Cybersecurity, OHS &amp; MSc in Civil Engineering</span>
+          </p>
+          <div class="contact-loc"><span class="tr">İstanbul, Türkiye</span><span class="en">Istanbul, Türkiye</span></div>
+          <div class="contact-links">
+            <a href="mailto:a.kadir.gungor.86@gmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/abdulkadir-g%C3%BCng%C3%B6r/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/abdulkadirgungor86" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://calendly.com/a-kadir-gungor-86/30min" target="_blank" rel="noopener">Calendly</a>
+			<a href="https://abdulkadirgungor.com" target="_blank" rel="noopener" class="tr">Web Sitesi</a><a href="https://abdulkadirgungor.com/en/" target="_blank" rel="noopener" class="en">Website</a></span>
+			</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-brand">docs.abdulkadirgungor.com</div>
+    <div class="footer-copy">
+      <span class="year-name">2026 © <a href="https://abdulkadirgungor.com/" target="_blank" rel="noopener" class="tr">Abdulkadir Güngör</a><a href="https://abdulkadirgungor.com/en/" target="_blank" rel="noopener" class="en">Abdulkadir Güngör</a></span>
+      <span class="tr">Tüm hakları saklıdır</span>
+      <span class="en">All rights reserved</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang){
+    document.body.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+    document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.querySelectorAll('.k.en, .ic-k.en').forEach(function(el){ el.style.display = lang === 'en' ? '' : 'none'; });
+    document.querySelectorAll('.k.tr, .ic-k.tr').forEach(function(el){ el.style.display = lang === 'tr' ? '' : 'none'; });
+    try { localStorage.setItem('docshub-lang', lang); } catch(e) {}
+  }
+  function toggleTheme(){
+    var current = document.body.getAttribute('data-theme');
+    setTheme(current === 'dark' ? 'light' : 'dark');
+  }
+  var ICON_SUN = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"></circle><line x1="12" y1="2.5" x2="12" y2="5.2"></line><line x1="12" y1="18.8" x2="12" y2="21.5"></line><line x1="2.5" y1="12" x2="5.2" y2="12"></line><line x1="18.8" y1="12" x2="21.5" y2="12"></line><line x1="5.1" y1="5.1" x2="7" y2="7"></line><line x1="17" y1="17" x2="18.9" y2="18.9"></line><line x1="18.9" y1="5.1" x2="17" y2="7"></line><line x1="7" y1="17" x2="5.1" y2="18.9"></line></svg>';
+  var ICON_MOON = '<svg viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"></path></svg>';
+  function setTheme(theme){
+    document.body.setAttribute('data-theme', theme);
+    document.getElementById('theme-btn').innerHTML = theme === 'dark' ? ICON_MOON : ICON_SUN;
+    try { localStorage.setItem('docshub-theme', theme); } catch(e) {}
+  }
+  (function(){
+    var savedLang = null, savedTheme = null;
+    try { savedLang = localStorage.getItem('docshub-lang'); } catch(e) {}
+    try { savedTheme = localStorage.getItem('docshub-theme'); } catch(e) {}
+    setLang(savedLang || 'tr');
+    setTheme(savedTheme || 'light');
+  })();
+</script>
+
+</body>
+</html>

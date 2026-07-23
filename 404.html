@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>404 — Sayfa Bulunamadı | docs.abdulkadirgungor.com</title>
+<meta name="description" content="Aradığınız sayfa veya belge bulunamadı — docs.abdulkadirgungor.com" />
+<meta name="author" content="Abdulkadir Güngör" />
+<meta property="og:title" content="404 — docs.abdulkadirgungor.com" />
+<meta property="og:description" content="Aradığınız sayfa veya belge bulunamadı — docs.abdulkadirgungor.com" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.abdulkadirgungor.com/404.html" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231e2a38'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23eef1ec' font-family='serif'%3ED%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --radius:5px;
+    --font-head:'Source Serif 4', Georgia, serif;
+    --font-body:'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+    --font-mono:'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  /* ---------- Light theme (default) — drafting paper ---------- */
+  body[data-theme="light"]{
+    --bg:#eef1ec;
+    --bg-panel:#f7f8f4;
+    --ink:#1e2a38;
+    --ink-soft:#4b5563;
+    --line:#c9cabb;
+    --line-strong:#1e2a38;
+    --stamp:#a8382c;
+    --stamp-soft:#a8382c14;
+    --blue:#2b4c7e;
+  }
+
+  /* ---------- Dark theme — true blueprint ---------- */
+  body[data-theme="dark"]{
+    --bg:#0e1b2e;
+    --bg-panel:#132441;
+    --ink:#e7ecf2;
+    --ink-soft:#9fb2c9;
+    --line:#2b466c;
+    --line-strong:#7fa8d9;
+    --stamp:#e0664f;
+    --stamp-soft:#e0664f22;
+    --blue:#7fb3e0;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;overflow-x:hidden;}
+  body{
+    margin:0;
+    min-height:100vh;
+    overflow-x:hidden;
+    background:var(--bg);
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 27px, color-mix(in srgb, var(--line) 55%, transparent) 28px),
+      repeating-linear-gradient(90deg, transparent, transparent 27px, color-mix(in srgb, var(--line) 55%, transparent) 28px);
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    transition:background-color .2s, color .2s;
+    display:flex;
+    flex-direction:column;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  body[data-lang="tr"] .en{display:none;}
+  body[data-lang="en"] .tr{display:none;}
+
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--stamp);color:#fff;}
+  code{font-family:var(--font-mono);}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;width:100%;}
+
+  /* ---------- Header ---------- */
+  header{
+    background:var(--bg-panel);
+    border-bottom:2px solid var(--line-strong);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:10px;padding:16px 20px;max-width:1080px;margin:0 auto;gap:16px;}
+  .brand{display:flex;align-items:center;gap:9px;min-width:0;}
+  .brand .mark{width:26px;height:26px;border:1.5px solid var(--ink);border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:700;font-size:14px;flex-shrink:0;}
+  .brand .name{font-family:var(--font-mono);font-weight:600;font-size:14.5px;letter-spacing:-0.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;}
+  .brand .name .dim{color:var(--ink-soft);font-weight:400;}
+
+  .controls{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+
+  .lang-toggle{display:flex;border:1.5px solid var(--ink);border-radius:3px;overflow:hidden;}
+  .lang-toggle button{
+    background:var(--bg-panel);border:0;cursor:pointer;
+    display:flex;align-items:center;gap:6px;
+    padding:6px 10px;font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);
+    transition:.15s;
+  }
+  .lang-toggle button:not(:last-child){border-right:1.5px solid var(--ink);}
+  .lang-toggle button .flag{font-size:15px;line-height:1;}
+  .lang-toggle button.active{background:var(--ink);color:var(--bg-panel);font-weight:700;}
+
+  .theme-toggle{
+    width:34px;height:34px;border-radius:3px;border:1.5px solid var(--ink);
+    background:var(--bg-panel);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:.15s;flex-shrink:0;color:var(--ink);
+  }
+  .theme-toggle svg{width:16px;height:16px;stroke:currentColor;fill:none;}
+
+  /* ---------- 404 main ---------- */
+  main{flex:1;display:flex;align-items:center;}
+  .error-wrap{padding-top:60px;padding-bottom:60px;}
+  .error-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:44px;align-items:center;}
+
+  .label-line{
+    font-family:var(--font-mono);font-size:11.5px;color:var(--stamp);
+    letter-spacing:.09em;text-transform:uppercase;margin-bottom:16px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .label-line::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  .code-big{
+    font-family:var(--font-head);font-weight:700;color:var(--ink);
+    font-size:clamp(64px,10vw,120px);line-height:1;letter-spacing:-0.02em;margin:0 0 6px;
+  }
+  .code-big em{font-style:italic;color:var(--stamp);}
+
+  h1{
+    font-family:var(--font-head);font-weight:600;
+    font-size:clamp(22px,3vw,29px);
+    line-height:1.25; letter-spacing:-0.01em; margin:0 0 16px;
+  }
+
+  .lede{font-size:15.5px;color:var(--ink-soft);margin:0 0 30px;max-width:520px;}
+
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 18px;border-radius:3px;font-weight:600;font-size:13.5px;font-family:var(--font-mono);
+    border:1.5px solid var(--ink); cursor:pointer; transition:box-shadow .12s, transform .06s;
+  }
+  .btn-primary{background:var(--ink);color:var(--bg-panel);}
+  .btn-primary:hover{box-shadow:3px 3px 0 var(--stamp);transform:translate(-1px,-1px);}
+  .btn-ghost{background:var(--bg-panel);color:var(--ink);}
+  .btn-ghost:hover{box-shadow:3px 3px 0 var(--ink);transform:translate(-1px,-1px);}
+
+  /* ---------- Index card ---------- */
+  .index-card{
+    background:var(--bg-panel);border:1.5px solid var(--ink);border-radius:2px;
+    padding:0; position:relative; transform:rotate(0.6deg);
+    box-shadow:6px 6px 0 var(--stamp-soft), 6px 6px 0 1.5px var(--line);
+  }
+  .index-card .ic-top{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:10px 16px;border-bottom:1.5px dashed var(--line-strong);
+    font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-soft);text-transform:uppercase;
+  }
+  .index-card .ic-body{padding:18px 16px 20px;}
+  .ic-row{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12.5px;}
+  .ic-row:last-child{border-bottom:0;}
+  .ic-row .ic-k{font-family:var(--font-mono);color:var(--ink-soft);min-width:76px;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;padding-top:2px;}
+  .ic-row .ic-v{font-family:var(--font-mono);color:var(--ink);word-break:break-word;font-size:12px;}
+  .ic-v .hi{color:var(--stamp);}
+
+  .stamp{
+    position:absolute; top:-14px; right:-10px;
+    width:74px;height:74px;border-radius:50%;
+    border:2px solid var(--stamp); color:var(--stamp);
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    font-family:var(--font-mono);font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    transform:rotate(-11deg); background:color-mix(in srgb, var(--bg-panel) 85%, transparent);
+    line-height:1.25;
+  }
+  .stamp::before{content:"";position:absolute;inset:5px;border:1px solid var(--stamp);border-radius:50%;}
+
+  /* ---------- Footer ---------- */
+  footer{border-top:2px solid var(--line-strong);padding:30px 0;}
+  .footer-inner{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;}
+  .footer-brand{font-family:var(--font-mono);color:var(--ink-soft);font-size:12px;}
+  .footer-copy{text-align:right;font-size:12.5px;line-height:1.6;color:var(--ink-soft);font-family:var(--font-mono);}
+  .footer-copy .year-name a{color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:3px;}
+  .footer-copy .year-name a:hover{color:var(--stamp);}
+
+  @media (max-width:860px){
+    .error-grid{grid-template-columns:1fr;gap:36px;}
+    .index-card{max-width:420px;justify-self:start;}
+    .footer-inner{flex-direction:column;align-items:flex-start;}
+    .footer-copy{text-align:left;}
+  }
+  @media (max-width:520px){
+    .wrap{padding:0 18px;}
+    .error-wrap{padding-top:36px;padding-bottom:36px;}
+    .lang-toggle button .code{display:none;}
+    .lang-toggle button{padding:7px 9px;}
+    .lang-toggle button .flag{font-size:18px;}
+    .brand .name{font-size:12.5px;}
+    .index-card{transform:rotate(0deg);margin-right:6px;}
+    .stamp{top:-12px;right:-6px;width:64px;height:64px;font-size:8px;}
+    .hero-actions{flex-direction:column;align-self:stretch;}
+    .hero-actions .btn{justify-content:center;width:100%;}
+  }
+  @media (max-width:380px){
+    .nav{padding:14px 14px;}
+    .brand .name{max-width:150px;}
+    .code-big{font-size:58px;}
+  }
+</style>
+</head>
+<body data-lang="tr" data-theme="light">
+
+<header>
+  <div class="nav">
+    <a class="brand" href="/">
+      <span class="mark">D</span>
+      <span class="name">docs<span class="dim">.abdulkadirgungor.com</span></span>
+    </a>
+    <div class="controls">
+      <div class="lang-toggle">
+        <button id="btn-tr" class="active" onclick="setLang('tr')"><span class="flag">🇹🇷</span><span class="code">TR</span></button>
+        <button id="btn-en" onclick="setLang('en')"><span class="flag">🇬🇧</span><span class="code">EN</span></button>
+      </div>
+      <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" aria-label="tema değiştir / toggle theme"></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap error-wrap">
+    <div class="error-grid">
+      <div>
+        <div class="label-line">
+          <span class="tr">Hata · Belge Bulunamadı</span><span class="en">Error · Document Not Found</span>
+        </div>
+
+        <div class="code-big">4<em>0</em>4</div>
+
+        <h1>
+          <span class="tr">Aradığınız sayfa ya da belge bu depoda bulunamadı.</span>
+          <span class="en">The page or document you're looking for doesn't exist in this repository.</span>
+        </h1>
+
+        <p class="lede">
+          <span class="tr">Bağlantı hatalı olabilir, belge taşınmış ya da kaldırılmış olabilir. Adresi kontrol edin veya ana sayfaya dönerek belgeyi klasör yapısından bulun.</span>
+          <span class="en">The link may be broken, or the document may have been moved or removed. Check the address, or return to the homepage to find it through the folder structure.</span>
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/">
+            <span class="tr">Ana Sayfaya Dön</span><span class="en">Back to Homepage</span> →
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/abdulkadirgungor86/docs.abdulkadirgungor.com" target="_blank" rel="noopener">
+            <span class="tr">GitHub'da Görüntüle</span><span class="en">View on GitHub</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="index-card">
+        <div class="stamp"><span class="tr">Bulunamadı</span><span class="en">Not Found</span></div>
+        <div class="ic-top">
+          <span class="tr">Belge Fişi</span><span class="en">Document Card</span>
+          <span>#0000</span>
+        </div>
+        <div class="ic-body">
+          <div class="ic-row"><span class="ic-k tr">Durum</span><span class="ic-k en" style="display:none">Status</span><span class="ic-v">HTTP 404</span></div>
+          <div class="ic-row"><span class="ic-k tr">Belge</span><span class="ic-k en" style="display:none">Document</span><span class="ic-v"><span class="hi tr">— bulunamadı —</span><span class="hi en">— not found —</span></span></div>
+          <div class="ic-row"><span class="ic-k">URL</span><span class="ic-v">docs.abdulkadirgungor.com/<span class="hi tr">?</span><span class="hi en">?</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-brand">docs.abdulkadirgungor.com</div>
+    <div class="footer-copy">
+      <span class="year-name">2026 © <a href="https://abdulkadirgungor.com/" target="_blank" rel="noopener" class="tr">Abdulkadir Güngör</a><a href="https://abdulkadirgungor.com/en/" target="_blank" rel="noopener" class="en">Abdulkadir Güngör</a></span>
+      <span class="tr">Tüm hakları saklıdır</span>
+      <span class="en">All rights reserved</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang){
+    document.body.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+    document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.querySelectorAll('.ic-k.en').forEach(function(el){ el.style.display = lang === 'en' ? '' : 'none'; });
+    document.querySelectorAll('.ic-k.tr').forEach(function(el){ el.style.display = lang === 'tr' ? '' : 'none'; });
+    try { localStorage.setItem('docshub-lang', lang); } catch(e) {}
+  }
+  function toggleTheme(){
+    var current = document.body.getAttribute('data-theme');
+    setTheme(current === 'dark' ? 'light' : 'dark');
+  }
+  var ICON_SUN = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"></circle><line x1="12" y1="2.5" x2="12" y2="5.2"></line><line x1="12" y1="18.8" x2="12" y2="21.5"></line><line x1="2.5" y1="12" x2="5.2" y2="12"></line><line x1="18.8" y1="12" x2="21.5" y2="12"></line><line x1="5.1" y1="5.1" x2="7" y2="7"></line><line x1="17" y1="17" x2="18.9" y2="18.9"></line><line x1="18.9" y1="5.1" x2="17" y2="7"></line><line x1="7" y1="17" x2="5.1" y2="18.9"></line></svg>';
+  var ICON_MOON = '<svg viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"></path></svg>';
+  function setTheme(theme){
+    document.body.setAttribute('data-theme', theme);
+    document.getElementById('theme-btn').innerHTML = theme === 'dark' ? ICON_MOON : ICON_SUN;
+    try { localStorage.setItem('docshub-theme', theme); } catch(e) {}
+  }
+  (function(){
+    var savedLang = null, savedTheme = null;
+    try { savedLang = localStorage.getItem('docshub-lang'); } catch(e) {}
+    try { savedTheme = localStorage.getItem('docshub-theme'); } catch(e) {}
+    setLang(savedLang || 'tr');
+    setTheme(savedTheme || 'light');
+  })();
+</script>
+
+</body>
+</html>

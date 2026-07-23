@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>İçerik Yapım Aşamasında — docs.abdulkadirgungor.com</title>
+<meta name="description" content="Bu sayfa ve içerikler şu anda yapım aşamasındadır. Çok yakında hizmetinizde olacaktır." />
+<meta name="author" content="Abdulkadir Güngör" />
+<meta property="og:title" content="İçerik Yapım Aşamasında — docs.abdulkadirgungor.com" />
+<meta property="og:description" content="Bu sayfa ve içerikler şu anda yapım aşamasındadır. Çok yakında hizmetinizde olacaktır." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231e2a38'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23eef1ec' font-family='serif'%3ED%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --radius:5px;
+    --font-head:'Source Serif 4', Georgia, serif;
+    --font-body:'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+    --font-mono:'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  body[data-theme="light"]{
+    --bg:#eef1ec;
+    --bg-panel:#f7f8f4;
+    --bg-tab:#e2ded0;
+    --ink:#1e2a38;
+    --ink-soft:#4b5563;
+    --line:#c9cabb;
+    --line-strong:#1e2a38;
+    --stamp:#a8382c;
+    --stamp-soft:#a8382c14;
+    --blue:#2b4c7e;
+    --blue-soft:#2b4c7e14;
+    --gold:#8a6d1f;
+    --green:#3a6b4f;
+  }
+
+  body[data-theme="dark"]{
+    --bg:#0e1b2e;
+    --bg-panel:#132441;
+    --bg-tab:#1a3153;
+    --ink:#e7ecf2;
+    --ink-soft:#9fb2c9;
+    --line:#2b466c;
+    --line-strong:#7fa8d9;
+    --stamp:#e0664f;
+    --stamp-soft:#e0664f22;
+    --blue:#7fb3e0;
+    --blue-soft:#7fb3e022;
+    --gold:#d9b65c;
+    --green:#78c39c;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 27px, color-mix(in srgb, var(--line) 55%, transparent) 28px),
+      repeating-linear-gradient(90deg, transparent, transparent 27px, color-mix(in srgb, var(--line) 55%, transparent) 28px);
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    transition:background-color .2s, color .2s;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  /* TR ve EN dil görünürlük kuralları */
+  body[data-lang="tr"] .en{display:none !important;}
+  body[data-lang="en"] .tr{display:none !important;}
+  body[data-lang="tr"] span.ic-k.tr{display:inline-block !important;}
+  body[data-lang="en"] span.ic-k.en{display:inline-block !important;}
+
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;height:auto;display:block;}
+  ::selection{background:var(--stamp);color:#fff;}
+  code{font-family:var(--font-mono);}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--bg-panel);
+    border-bottom:2px solid var(--line-strong);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1080px;margin:0 auto;gap:12px;}
+  .brand{display:flex;align-items:center;gap:9px;min-width:0;}
+  .brand .mark{width:26px;height:26px;border:1.5px solid var(--ink);border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:700;font-size:14px;flex-shrink:0;}
+  .brand .name{font-family:var(--font-mono);font-weight:600;font-size:14.5px;letter-spacing:-0.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .brand .name .dim{color:var(--ink-soft);font-weight:400;}
+
+  nav.links{display:flex;gap:20px;align-items:center;}
+  nav.links a{font-size:13.5px;color:var(--ink-soft);transition:color .15s;white-space:nowrap;font-family:var(--font-mono);}
+  nav.links a:hover{color:var(--stamp);}
+
+  #mnav.open {
+    display: flex !important;
+    border-top: 1px dashed var(--line);
+  }
+
+  .controls{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+
+  .lang-toggle{display:flex;border:1.5px solid var(--ink);border-radius:3px;overflow:hidden;}
+  .lang-toggle button{
+    background:var(--bg-panel);border:0;cursor:pointer;
+    display:flex;align-items:center;gap:4px;
+    padding:6px 8px;font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);
+    transition:.15s;
+  }
+  .lang-toggle button:not(:last-child){border-right:1.5px solid var(--ink);}
+  .lang-toggle button .flag{font-size:15px;line-height:1;}
+  .lang-toggle button.active{background:var(--ink);color:var(--bg-panel);font-weight:700;}
+
+  .theme-toggle{
+    width:34px;height:34px;border-radius:3px;border:1.5px solid var(--ink);
+    background:var(--bg-panel);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:.15s;flex-shrink:0;color:var(--ink);
+  }
+  .theme-toggle svg{width:16px;height:16px;stroke:currentColor;fill:none;}
+
+  .burger{display:none;background:var(--bg-panel);border:1.5px solid var(--ink);border-radius:3px;color:var(--ink);width:36px;height:34px;cursor:pointer;font-size:16px;align-items:center;justify-content:center;flex-shrink:0;}
+
+  /* ---------- Hero / Under Construction ---------- */
+  .hero{padding:60px 0 64px;}
+  .hero-grid{display:grid;grid-template-columns:1.2fr 0.9fr;gap:44px;align-items:start;}
+
+  .label-line{
+    font-family:var(--font-mono);font-size:11.5px;color:var(--stamp);
+    letter-spacing:.09em;margin-bottom:16px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .label-line::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  h1{
+    font-family:var(--font-head);font-weight:700;
+    font-size:clamp(28px, 5vw, 48px);
+    line-height:1.2; letter-spacing:-0.01em; margin:0 0 20px;
+  }
+  
+  /* Belirginleştirilmiş Metin Kutusu */
+  .construction-notice {
+    background: var(--stamp-soft);
+    border-left: 4px solid var(--stamp);
+    padding: 14px 18px;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 24px;
+  }
+  .construction-notice h2 {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: clamp(18px, 3.5vw, 24px);
+    color: var(--stamp);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .lede{font-size:16px;color:var(--ink-soft);margin:0 0 30px;max-width:580px;}
+
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:11px 18px;border-radius:3px;font-weight:600;font-size:13.5px;font-family:var(--font-mono);
+    border:1.5px solid var(--ink); cursor:pointer; transition:box-shadow .12s, transform .06s;
+    text-align:center;
+  }
+  .btn-primary{background:var(--ink);color:var(--bg-panel);}
+  .btn-primary:hover{box-shadow:3px 3px 0 var(--stamp);transform:translate(-1px,-1px);}
+  .btn-ghost{background:var(--bg-panel);color:var(--ink);}
+  .btn-ghost:hover{box-shadow:3px 3px 0 var(--ink);transform:translate(-1px,-1px);}
+
+  /* Kart Tasarımı */
+  .index-card{
+    background:var(--bg-panel);border:1.5px solid var(--ink);border-radius:2px;
+    padding:0; position:relative; transform:rotate(0.6deg);
+    box-shadow:6px 6px 0 var(--stamp-soft), 6px 6px 0 1.5px var(--line);
+    max-width:100%;
+  }
+  .index-card .ic-top{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:10px 16px;border-bottom:1.5px dashed var(--line-strong);
+    font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-soft);text-transform:uppercase;
+  }
+  .index-card .ic-body{padding:18px 16px 20px;}
+  
+  .ic-row{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:9px 0;
+    border-bottom:1px solid var(--line);
+    font-size:12.5px;
+  }
+  .ic-row:last-child{border-bottom:0;}
+  
+  /* Sabit genişlikli etiketler (TR/EN çakışmasını engellemek için) */
+  .ic-row .ic-k{
+    font-family:var(--font-mono);
+    color:var(--ink-soft);
+    width:105px;
+    min-width:105px;
+    font-size:10.5px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    padding-top:2px;
+    flex-shrink:0;
+  }
+  .ic-row .ic-v{font-family:var(--font-mono);color:var(--ink);word-break:break-all;font-size:12px;flex:1;}
+  .ic-v .hi{color:var(--stamp);font-weight:600;}
+
+  .stamp{
+    position:absolute; top:-14px; right:-10px;
+    width:78px;height:78px;border-radius:50%;
+    border:2px solid var(--stamp); color:var(--stamp);
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    font-family:var(--font-mono);font-size:8.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    transform:rotate(-11deg); background:color-mix(in srgb, var(--bg-panel) 85%, transparent);
+    line-height:1.2; z-index:2;
+  }
+  .stamp::before{content:"";position:absolute;inset:5px;border:1px solid var(--stamp);border-radius:50%;}
+
+  /* ---------- Animated Progress Box (Butonların Çok Daha Altında) ---------- */
+  .progress-section {
+    margin-top: 50px;
+  }
+  .progress-box{
+    background:var(--bg-panel);
+    border:1.5px solid var(--ink);
+    border-radius:2px;
+    padding:20px;
+  }
+  .progress-title{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+    display:flex;
+    justify-content:space-between;
+    font-weight:600;
+  }
+  .progress-bar-bg{
+    height:14px;
+    background:var(--bg-tab);
+    border:1px solid var(--line-strong);
+    border-radius:2px;
+    overflow:hidden;
+    position:relative;
+  }
+  .progress-bar-fill{
+    height:100%;
+    width:65%;
+    background-color: var(--stamp);
+    background-image: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.2) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.2) 75%,
+      transparent 75%,
+      transparent
+    );
+    background-size: 28px 28px;
+    animation: moveStripes 1.2s linear infinite;
+  }
+
+  @keyframes moveStripes {
+    0% { background-position: 0 0; }
+    100% { background-position: 28px 0; }
+  }
+
+  /* ---------- Footer ---------- */
+  footer{border-top:2px solid var(--line-strong);padding:30px 0;margin-top:40px;}
+  .footer-inner{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;}
+  .footer-brand{font-family:var(--font-mono);color:var(--ink-soft);font-size:12px;}
+  .footer-copy{text-align:right;font-size:12.5px;line-height:1.6;color:var(--ink-soft);font-family:var(--font-mono);}
+  .footer-copy .year-name a{color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:3px;}
+  .footer-copy .year-name a:hover{color:var(--stamp);}
+
+  /* ---------- Mobil / Responsive Uyarlamalar ---------- */
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:24px;}
+    nav.links{display:none;}
+    .burger{display:flex;}
+    .footer-inner{flex-direction:column;align-items:flex-start;}
+    .footer-copy{text-align:left;}
+    .index-card{max-width:100%;margin-top:20px;}
+  }
+  @media (max-width:520px){
+    .wrap{padding:0 16px;}
+    .nav{padding:12px 16px;}
+    .hero{padding:32px 0 36px;}
+    .brand .name .dim{display:none;}
+    .brand .name{font-size:13px;}
+    .lang-toggle button .code{display:none;}
+    .lang-toggle button{padding:6px 8px;}
+    .lang-toggle button .flag{font-size:16px;}
+    .hero-actions{flex-direction:column;width:100%;}
+    .hero-actions .btn{width:100%;}
+  }
+</style>
+</head>
+<body data-lang="tr" data-theme="light">
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <span class="mark">D</span>
+      <span class="name">docs<span class="dim">.abdulkadirgungor.com</span></span>
+    </div>
+    <nav class="links">
+      <a href="https://docs.abdulkadirgungor.com"><span class="tr">Belge Deposu</span><span class="en">Docs Hub</span> ↩</a>
+    </nav>
+    <div class="controls">
+      <div class="lang-toggle">
+        <button id="btn-tr" class="active" onclick="setLang('tr')"><span class="flag">🇹🇷</span><span class="code">TR</span></button>
+        <button id="btn-en" onclick="setLang('en')"><span class="flag">🇬🇧</span><span class="code">EN</span></button>
+      </div>
+      <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" aria-label="tema değiştir / toggle theme"></button>
+      <button class="burger" onclick="document.getElementById('mnav').classList.toggle('open')" aria-label="menu">☰</button>
+    </div>
+  </div>
+  <nav id="mnav" class="links" style="display:none;flex-direction:column;padding:14px 24px 18px;gap:14px;">
+    <a href="https://docs.abdulkadirgungor.com" onclick="document.getElementById('mnav').classList.remove('open')"><span class="tr">Belge Deposu</span><span class="en">Docs Hub</span> ↩</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO / UNDER CONSTRUCTION -->
+  <section class="hero" style="border-top:0;">
+    <div class="wrap">
+      <div class="label-line">
+        <span class="tr">SİSTEM DURUMU · /güncelleme/</span><span class="en">SYSTEM STATUS · /update/</span>
+      </div>
+
+      <div class="hero-grid">
+        <div>
+          <div class="construction-notice">
+            <h2>
+              <span>🚧</span>
+              <span class="tr">İçerik Şu An Yapım Aşamasındadır</span>
+              <span class="en">Content Is Currently Under Construction</span>
+            </h2>
+          </div>
+
+          <p class="lede">
+            <span class="tr">Bu sayfanın teknik dokümantasyonları, kullanım kılavuzları ve detaylı rehberleri güncellenmektedir. Çok yakında tüm içeriklerle birlikte burada hizmetinizde olacaktır.</span>
+            <span class="en">Technical documentations, user manuals, and detailed guides for this page are being updated. It will be live here with all content shortly.</span>
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://docs.abdulkadirgungor.com">
+              <span class="tr">Belge Deposuna Dön</span><span class="en">Back to Docs Hub</span>
+            </a>
+            <a class="btn btn-ghost" href="javascript:history.back()">
+              ← <span class="tr">Önceki Sayfa</span><span class="en">Previous Page</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="index-card">
+          <div class="stamp"><span class="tr">Yapım<br>Aşamasında</span><span class="en">Work In<br>Progress</span></div>
+          <div class="ic-top">
+            <span class="tr">Sistem Bilgisi</span><span class="en">System Info</span>
+            <span>HTTP 200 / BUILD</span>
+          </div>
+          <div class="ic-body">
+            <div class="ic-row">
+              <span class="ic-k tr">Durum</span>
+              <span class="ic-k en">Status</span>
+              <span class="ic-v hi">BUILDING / HAZIRLANIYOR</span>
+            </div>
+            <div class="ic-row">
+              <span class="ic-k tr">Modül</span>
+              <span class="ic-k en">Module</span>
+              <span class="ic-v">Docs Platform Index</span>
+            </div>
+            <div class="ic-row">
+              <span class="ic-k tr">Geliştirici</span>
+              <span class="ic-k en">Developer</span>
+              <span class="ic-v">Abdulkadir Güngör</span>
+            </div>
+            <div class="ic-row">
+              <span class="ic-k">URL</span>
+              <span class="ic-v">docs.abdulkadirgungor.com/<span class="hi">???</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dolan Bar (Butonların ve Kartın Belirgin Şekilde Altında) -->
+      <div class="progress-section">
+        <div class="progress-box">
+          <div class="progress-title">
+            <span class="tr">Hazırlık Süreci</span><span class="en">Preparation Process</span>
+            <span>65%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-brand">docs.abdulkadirgungor.com</div>
+    <div class="footer-copy">
+      <span class="year-name">2026 © <a href="https://abdulkadirgungor.com/" target="_blank" rel="noopener" class="tr">Abdulkadir Güngör</a><a href="https://abdulkadirgungor.com/en/" target="_blank" rel="noopener" class="en">Abdulkadir Güngör</a></span>
+      <span class="tr">Tüm hakları saklıdır</span>
+      <span class="en">All rights reserved</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang){
+    document.body.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+    document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    try { localStorage.setItem('docshub-lang', lang); } catch(e) {}
+  }
+  function toggleTheme(){
+    var current = document.body.getAttribute('data-theme');
+    setTheme(current === 'dark' ? 'light' : 'dark');
+  }
+  var ICON_SUN = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"></circle><line x1="12" y1="2.5" x2="12" y2="5.2"></line><line x1="12" y1="18.8" x2="12" y2="21.5"></line><line x1="2.5" y1="12" x2="5.2" y2="12"></line><line x1="18.8" y1="12" x2="21.5" y2="12"></line><line x1="5.1" y1="5.1" x2="7" y2="7"></line><line x1="17" y1="17" x2="18.9" y2="18.9"></line><line x1="18.9" y1="5.1" x2="17" y2="7"></line><line x1="7" y1="17" x2="5.1" y2="18.9"></line></svg>';
+  var ICON_MOON = '<svg viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"></path></svg>';
+  function setTheme(theme){
+    document.body.setAttribute('data-theme', theme);
+    document.getElementById('theme-btn').innerHTML = theme === 'dark' ? ICON_MOON : ICON_SUN;
+    try { localStorage.setItem('docshub-theme', theme); } catch(e) {}
+  }
+  (function(){
+    var savedLang = null, savedTheme = null;
+    try { savedLang = localStorage.getItem('docshub-lang'); } catch(e) {}
+    try { savedTheme = localStorage.getItem('docshub-theme'); } catch(e) {}
+    setLang(savedLang || 'tr');
+    setTheme(savedTheme || 'light');
+  })();
+</script>
+
+</body>
+</html>
