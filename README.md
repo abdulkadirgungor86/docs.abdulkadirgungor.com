@@ -14,7 +14,8 @@
 [🇬🇧] A central repository hosting all kinds of publish-ready (online) content; these contents include, among others, user guides, privacy policies, data security notices, ad policies, and target audience information belonging to various mobile, desktop, and web applications.
 
 &nbsp;
-🔗 **Geliştirici / Developer:** [Abdulkadir Güngör](https://abdulkadirgungor.com/)
+🔗 **Web site:** [docs.abdulkadirgungor.com](https://docs.abdulkadirgungor.com)
+🔗 **Geliştirici / Developer:** [Abdulkadir Güngör](https://abdulkadirgungor.com)
 
 </div>
 
