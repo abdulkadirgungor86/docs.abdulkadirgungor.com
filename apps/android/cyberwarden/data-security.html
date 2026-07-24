@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>İçerik Yapım Aşamasında — docs.abdulkadirgungor.com</title>
-<meta name="description" content="Bu sayfa ve içerikler şu anda yapım aşamasındadır. Çok yakında hizmetinizde olacaktır." />
+<title>CyberWarden — Veri Güvenliği ve Gizlilik Belgesi / Data Security and Privacy Policy</title>
+<meta name="description" content="CyberWarden uygulamasına ait detaylı gizlilik politikası ve veri güvenliği ilkeleri." />
 <meta name="author" content="Abdulkadir Güngör" />
-<meta property="og:title" content="İçerik Yapım Aşamasında — docs.abdulkadirgungor.com" />
-<meta property="og:description" content="Bu sayfa ve içerikler şu anda yapım aşamasındadır. Çok yakında hizmetinizde olacaktır." />
+<meta property="og:title" content="CyberWarden — Veri Güvenliği ve Gizlilik Belgesi" />
+<meta property="og:description" content="CyberWarden uygulamasının tamamen çevrimdışı ve gizlilik odaklı çalışan veri politikası ve kullanıcı hakları." />
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.abdulkadirgungor.com/apps/android/cyberwarden/privacy-policy.html" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231e2a38'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23eef1ec' font-family='serif'%3ED%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,20 +74,16 @@
     *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
   }
 
-  /* TR ve EN dil görünürlük kuralları */
-  body[data-lang="tr"] .en{display:none !important;}
-  body[data-lang="en"] .tr{display:none !important;}
-  body[data-lang="tr"] span.ic-k.tr{display:inline-block !important;}
-  body[data-lang="en"] span.ic-k.en{display:inline-block !important;}
+  body[data-lang="tr"] .en{display:none;}
+  body[data-lang="en"] .tr{display:none;}
 
   a{color:inherit;text-decoration:none;}
   img{max-width:100%;height:auto;display:block;}
   ::selection{background:var(--stamp);color:#fff;}
-  code{font-family:var(--font-mono);}
+  code{font-family:var(--font-mono);background:var(--bg-tab);padding:2px 6px;border-radius:3px;font-size:13px;}
 
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
 
-  /* ---------- Header ---------- */
   header{
     position:sticky; top:0; z-index:50;
     background:var(--bg-panel);
@@ -129,9 +126,7 @@
 
   .burger{display:none;background:var(--bg-panel);border:1.5px solid var(--ink);border-radius:3px;color:var(--ink);width:36px;height:34px;cursor:pointer;font-size:16px;align-items:center;justify-content:center;flex-shrink:0;}
 
-  /* ---------- Hero / Under Construction ---------- */
-  .hero{padding:60px 0 64px;}
-  .hero-grid{display:grid;grid-template-columns:1.2fr 0.9fr;gap:44px;align-items:start;}
+  .hero{padding:48px 0 36px;}
 
   .label-line{
     font-family:var(--font-mono);font-size:11.5px;color:var(--stamp);
@@ -141,173 +136,86 @@
   .label-line::after{content:"";flex:1;height:1px;background:var(--line);}
 
   h1{
-    font-family:var(--font-head);font-weight:700;
-    font-size:clamp(28px, 5vw, 48px);
-    line-height:1.2; letter-spacing:-0.01em; margin:0 0 20px;
+    font-family:var(--font-head);font-weight:600;
+    font-size:clamp(26px,4.2vw,40px);
+    line-height:1.18; letter-spacing:-0.01em; margin:0 0 16px;
   }
-  
-  /* Belirginleştirilmiş Metin Kutusu */
-  .construction-notice {
-    background: var(--stamp-soft);
-    border-left: 4px solid var(--stamp);
-    padding: 14px 18px;
-    border-radius: 0 4px 4px 0;
-    margin-bottom: 24px;
-  }
-  .construction-notice h2 {
-    margin: 0;
-    font-family: var(--font-mono);
-    font-size: clamp(18px, 3.5vw, 24px);
-    color: var(--stamp);
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+  h1 em{font-style:italic;color:var(--stamp);}
 
-  .lede{font-size:16px;color:var(--ink-soft);margin:0 0 30px;max-width:580px;}
+  .lede{font-size:16.5px;color:var(--ink-soft);margin:0 0 24px;max-width:760px;}
 
-  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;}
-  .btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:8px;
-    padding:11px 18px;border-radius:3px;font-weight:600;font-size:13.5px;font-family:var(--font-mono);
-    border:1.5px solid var(--ink); cursor:pointer; transition:box-shadow .12s, transform .06s;
-    text-align:center;
-  }
-  .btn-primary{background:var(--ink);color:var(--bg-panel);}
-  .btn-primary:hover{box-shadow:3px 3px 0 var(--stamp);transform:translate(-1px,-1px);}
-  .btn-ghost{background:var(--bg-panel);color:var(--ink);}
-  .btn-ghost:hover{box-shadow:3px 3px 0 var(--ink);transform:translate(-1px,-1px);}
+  section{padding:40px 0;border-top:1.5px solid var(--line);}
+  .kicker{font-family:var(--font-mono);font-size:11.5px;color:var(--stamp);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
+  h2{font-family:var(--font-head);font-size:clamp(20px,2.8vw,26px);font-weight:600;letter-spacing:-0.01em;margin:0 0 16px;}
 
-  /* Kart Tasarımı */
-  .index-card{
-    background:var(--bg-panel);border:1.5px solid var(--ink);border-radius:2px;
-    padding:0; position:relative; transform:rotate(0.6deg);
-    box-shadow:6px 6px 0 var(--stamp-soft), 6px 6px 0 1.5px var(--line);
-    max-width:100%;
-  }
-  .index-card .ic-top{
-    display:flex;justify-content:space-between;align-items:center;
-    padding:10px 16px;border-bottom:1.5px dashed var(--line-strong);
-    font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-soft);text-transform:uppercase;
-  }
-  .index-card .ic-body{padding:18px 16px 20px;}
-  
-  .ic-row{
-    display:flex;
-    align-items:flex-start;
-    gap:10px;
-    padding:9px 0;
-    border-bottom:1px solid var(--line);
-    font-size:12.5px;
-  }
-  .ic-row:last-child{border-bottom:0;}
-  
-  /* Sabit genişlikli etiketler (TR/EN çakışmasını engellemek için) */
-  .ic-row .ic-k{
-    font-family:var(--font-mono);
-    color:var(--ink-soft);
-    width:105px;
-    min-width:105px;
-    font-size:10.5px;
-    letter-spacing:.04em;
-    text-transform:uppercase;
-    padding-top:2px;
-    flex-shrink:0;
-  }
-  .ic-row .ic-v{font-family:var(--font-mono);color:var(--ink);word-break:break-all;font-size:12px;flex:1;}
-  .ic-v .hi{color:var(--stamp);font-weight:600;}
-
-  .stamp{
-    position:absolute; top:-14px; right:-10px;
-    width:78px;height:78px;border-radius:50%;
-    border:2px solid var(--stamp); color:var(--stamp);
-    display:flex;align-items:center;justify-content:center;text-align:center;
-    font-family:var(--font-mono);font-size:8.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
-    transform:rotate(-11deg); background:color-mix(in srgb, var(--bg-panel) 85%, transparent);
-    line-height:1.2; z-index:2;
-  }
-  .stamp::before{content:"";position:absolute;inset:5px;border:1px solid var(--stamp);border-radius:50%;}
-
-  /* ---------- Animated Progress Box (Butonların Çok Daha Altında) ---------- */
-  .progress-section {
-    margin-top: 50px;
-  }
-  .progress-box{
+  .guide-box{
     background:var(--bg-panel);
     border:1.5px solid var(--ink);
     border-radius:2px;
-    padding:20px;
+    padding:24px;
+    margin-bottom:24px;
+    box-shadow:4px 4px 0 var(--stamp-soft);
   }
-  .progress-title{
-    font-family:var(--font-mono);
-    font-size:12px;
+  .guide-box h3{
+    font-family:var(--font-head);
+    font-size:18px;
+    margin:0 0 12px;
+    color:var(--ink);
+  }
+  .guide-box p{
+    font-size:14.5px;
     color:var(--ink-soft);
-    margin-bottom:10px;
-    display:flex;
-    justify-content:space-between;
-    font-weight:600;
+    margin:0 0 12px;
   }
-  .progress-bar-bg{
-    height:14px;
-    background:var(--bg-tab);
-    border:1px solid var(--line-strong);
-    border-radius:2px;
-    overflow:hidden;
-    position:relative;
+  .guide-box ul, .guide-box ol{
+    margin:0 0 12px;
+    padding-left:20px;
+    color:var(--ink);
+    font-size:14px;
   }
-  .progress-bar-fill{
-    height:100%;
-    width:65%;
-    background-color: var(--stamp);
-    background-image: linear-gradient(
-      45deg,
-      rgba(255, 255, 255, 0.2) 25%,
-      transparent 25%,
-      transparent 50%,
-      rgba(255, 255, 255, 0.2) 50%,
-      rgba(255, 255, 255, 0.2) 75%,
-      transparent 75%,
-      transparent
-    );
-    background-size: 28px 28px;
-    animation: moveStripes 1.2s linear infinite;
+  .guide-box li{margin-bottom:6px;}
+
+  .back-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--font-mono);
+    font-size:13px;
+    padding:8px 14px;
+    border:1.5px solid var(--ink);
+    background:var(--bg-panel);
+    border-radius:3px;
+    margin-bottom:20px;
+    transition:.15s;
+  }
+  .back-btn:hover{
+    box-shadow:2px 2px 0 var(--stamp);
+    color:var(--stamp);
   }
 
-  @keyframes moveStripes {
-    0% { background-position: 0 0; }
-    100% { background-position: 28px 0; }
-  }
-
-  /* ---------- Footer ---------- */
-  footer{border-top:2px solid var(--line-strong);padding:30px 0;margin-top:40px;}
+  footer{border-top:2px solid var(--line-strong);padding:30px 0;}
   .footer-inner{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;}
   .footer-brand{font-family:var(--font-mono);color:var(--ink-soft);font-size:12px;}
   .footer-copy{text-align:right;font-size:12.5px;line-height:1.6;color:var(--ink-soft);font-family:var(--font-mono);}
   .footer-copy .year-name a{color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:3px;}
   .footer-copy .year-name a:hover{color:var(--stamp);}
 
-  /* ---------- Mobil / Responsive Uyarlamalar ---------- */
   @media (max-width:860px){
-    .hero-grid{grid-template-columns:1fr;gap:24px;}
     nav.links{display:none;}
     .burger{display:flex;}
     .footer-inner{flex-direction:column;align-items:flex-start;}
     .footer-copy{text-align:left;}
-    .index-card{max-width:100%;margin-top:20px;}
   }
   @media (max-width:520px){
     .wrap{padding:0 16px;}
     .nav{padding:12px 16px;}
-    .hero{padding:32px 0 36px;}
+    .hero{padding:32px 0 24px;}
+    section{padding:32px 0;}
     .brand .name .dim{display:none;}
     .brand .name{font-size:13px;}
     .lang-toggle button .code{display:none;}
     .lang-toggle button{padding:6px 8px;}
     .lang-toggle button .flag{font-size:16px;}
-    .hero-actions{flex-direction:column;width:100%;}
-    .hero-actions .btn{width:100%;}
   }
 </style>
 </head>
@@ -317,99 +225,152 @@
   <div class="nav">
     <div class="brand">
       <span class="mark">D</span>
-      <span class="name">docs<span class="dim">.abdulkadirgungor.com</span></span>
+      <span class="name">docs<span class="dim">.abdulkadirgungor.com/apps/android/cyberwarden</span></span>
     </div>
     <nav class="links">
-      <a href="https://docs.abdulkadirgungor.com"><span class="tr">Belge Deposu</span><span class="en">Docs Hub</span> ↩</a>
+      <a href="../../../index.html"><span class="tr">Belge Deposu</span><span class="en">Docs Hub</span> ↩</a>
     </nav>
     <div class="controls">
       <div class="lang-toggle">
         <button id="btn-tr" class="active" onclick="setLang('tr')"><span class="flag">🇹🇷</span><span class="code">TR</span></button>
-        <button id="btn-en" onclick="setLang('en')"><span class="flag">🇬🇧</span><span class="code">EN</span></button>
+        <button id="btn-en" onclick="setLang('en')"><span class="flag">EN</span><span class="code">EN</span></button>
       </div>
       <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" aria-label="tema değiştir / toggle theme"></button>
       <button class="burger" onclick="document.getElementById('mnav').classList.toggle('open')" aria-label="menu">☰</button>
     </div>
   </div>
   <nav id="mnav" class="links" style="display:none;flex-direction:column;padding:14px 24px 18px;gap:14px;">
-    <a href="https://docs.abdulkadirgungor.com" onclick="document.getElementById('mnav').classList.remove('open')"><span class="tr">Belge Deposu</span><span class="en">Docs Hub</span> ↩</a>
+    <a href="../../../index.html" onclick="document.getElementById('mnav').classList.remove('open')"><span class="tr">Belge Deposu</span><span class="en">Docs Hub</span></a>
   </nav>
 </header>
 
 <main>
-  <!-- HERO / UNDER CONSTRUCTION -->
   <section class="hero" style="border-top:0;">
     <div class="wrap">
+      <a href="index.html" class="back-btn">← <span class="tr">Dokümantasyon Ana Sayfası</span><span class="en">Documentation Home</span></a>
       <div class="label-line">
-        <span class="tr">SİSTEM DURUMU · /güncelleme/</span><span class="en">SYSTEM STATUS · /update/</span>
+        <span class="tr">VERİ GÜVENLİĞİ VE GİZLİLİK BELGESİ · /apps/android/cyberwarden/data-security.html</span><span class="en">DATA SECURITY & PRIVACY POLICY · /apps/android/cyberwarden/data-security.html</span>
+      </div>
+	  
+     <div class="hero-grid">
+      <h1>
+        <span class="tr"> 
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" style="width: 0.85em; height: 0.85em; vertical-align: -0.08em; display: inline-block; flex-shrink: 0;">
+			<path fill="#38bdf8" stroke="#1e2a38" stroke-width="1.2" stroke-linejoin="round" d="M12 2L4 6v5c0 5.25 3.4 10.15 8 11.5 4.6-1.35 8-6.25 8-11.5V6l-8-4z"/>
+		  </svg>
+				CyberWarden <em>Veri Güvenliği ve Gizlilik Belgesi</em></span>
+        <span class="en"> 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" style="width: 0.85em; height: 0.85em; vertical-align: -0.08em; display: inline-block; flex-shrink: 0;">
+			<path fill="#38bdf8" stroke="#1e2a38" stroke-width="1.2" stroke-linejoin="round" d="M12 2L4 6v5c0 5.25 3.4 10.15 8 11.5 4.6-1.35 8-6.25 8-11.5V6l-8-4z"/>
+		  </svg>
+				CyberWarden <em>Data Security & Privacy Document</em></span>
+      </h1>
+	 </div>
+	  
+     <div class="hero-grid">
+      <p class="lede">
+        <span class="tr">CyberWarden, kullanıcı gizliliğini ve cihaz güvenliğini en üst düzeyde korumak üzere "Sıfır Veri Toplama" (Zero Data Collection) ve "Yerel Öncelikli" (Local-First) mimari esas alınarak tasarlanmıştır.</span>
+        <span class="en">CyberWarden is designed based on a "Zero Data Collection" and "Local-First" architecture to protect user privacy and device security at the highest level.</span>
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      
+      <!-- Özet Kutusu -->
+      <div class="guide-box" style="border-left: 4px solid var(--green);">
+        <p class="tr"><strong>100% Yerel ve Gizli Yapı:</strong> CyberWarden tamamen çevrimdışı ve gizlilik odaklı çalışan bir güvenlik uygulamasıdır. Cihazınızdan hiçbir veri uzak sunuculara toplanmaz, iletilmez veya üçüncü taraflarla paylaşılmaz. Tüm verileriniz yalnızca sizin kontrolünüzdedir.</p>
+        <p class="en"><strong>100% Local and Confidential Architecture:</strong> CyberWarden is a fully offline and privacy-focused security application. No data is collected, transmitted to remote servers, or shared with third parties from your device. All your data remains strictly under your control.</p>
       </div>
 
-      <div class="hero-grid">
-        <div>
-          <div class="construction-notice">
-            <h2>
-              <span>🚧</span>
-              <span class="tr">İçerik Şu An Yapım Aşamasındadır</span>
-              <span class="en">Content Is Currently Under Construction</span>
-            </h2>
-          </div>
+      <!-- Bölüm 1: Veri Depolama ve İşleme Mimarisi -->
+      <div class="guide-box">
+        <div class="kicker">01 / <span class="tr">VERİ MİMARİSİ</span><span class="en">DATA ARCHITECTURE</span></div>
+        <h2><span class="tr">1. Veri Depolama ve İşleme Mimarisi</span><span class="en">1. Data Storage and Processing Architecture</span></h2>
+        <p class="tr">CyberWarden, sistemdeki izin erişimlerini ve ağ paketlerini analiz ederken tamamen bağımsız ve yerel bir çalışma yapısı benimser:</p>
+        <p class="en">CyberWarden adopts a completely independent and local operational structure while analyzing permission access and network packets on the system:</p>
 
-          <p class="lede">
-            <span class="tr">Bu sayfanın teknik dokümantasyonları, kullanım kılavuzları ve detaylı rehberleri güncellenmektedir. Çok yakında tüm içeriklerle birlikte burada hizmetinizde olacaktır.</span>
-            <span class="en">Technical documentations, user manuals, and detailed guides for this page are being updated. It will be live here with all content shortly.</span>
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://docs.abdulkadirgungor.com">
-              <span class="tr">Belge Deposuna Dön</span><span class="en">Back to Docs Hub</span>
-            </a>
-            <a class="btn btn-ghost" href="javascript:history.back()">
-              ← <span class="tr">Önceki Sayfa</span><span class="en">Previous Page</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="index-card">
-          <div class="stamp"><span class="tr">Yapım<br>Aşamasında</span><span class="en">Work In<br>Progress</span></div>
-          <div class="ic-top">
-            <span class="tr">Sistem Bilgisi</span><span class="en">System Info</span>
-            <span>HTTP 200 / BUILD</span>
-          </div>
-          <div class="ic-body">
-            <div class="ic-row">
-              <span class="ic-k tr">Durum</span>
-              <span class="ic-k en">Status</span>
-              <span class="ic-v hi">BUILDING / HAZIRLANIYOR</span>
-            </div>
-            <div class="ic-row">
-              <span class="ic-k tr">Modül</span>
-              <span class="ic-k en">Module</span>
-              <span class="ic-v">Docs Platform Index</span>
-            </div>
-            <div class="ic-row">
-              <span class="ic-k tr">Geliştirici</span>
-              <span class="ic-k en">Developer</span>
-              <span class="ic-v">Abdulkadir Güngör</span>
-            </div>
-            <div class="ic-row">
-              <span class="ic-k">URL</span>
-              <span class="ic-v">docs.abdulkadirgungor.com/<span class="hi">???</span></span>
-            </div>
-          </div>
-        </div>
+        <ul>
+          <li>
+            <strong><span class="tr">Yerel Veri Saklama:</span><span class="en">Local Data Storage:</span></strong> 
+            <span class="tr">Uygulama tarafından oluşturulan günlük verileri (Erişim Günlükleri, Ağ Günlükleri, Haftalık/Aylık Yedekler) cihazın özel uygulama alanında SQLite / Room Veritabanı içinde depolanır.</span>
+            <span class="en">Log data generated by the app (Access Logs, Network Logs, Weekly/Monthly Backups) is stored within a SQLite / Room Database in the app's private storage area.</span>
+          </li>
+          <li>
+            <strong><span class="tr">Geliştirici Takibi Yok:</span><span class="en">No Developer Tracking:</span></strong> 
+            <span class="tr">Geliştirici veya 3. taraf servisler hiçbir kullanıcı verisini, cihaz kimliğini, IP adresini veya kullanım istatistiğini toplamaz ve işlemez.</span>
+            <span class="en">Neither the developer nor 3rd party services collect or process any user data, device IDs, IP addresses, or usage statistics.</span>
+          </li>
+          <li>
+            <strong><span class="tr">Üçüncü Şahıslarla Paylaşım Yok:</span><span class="en">No Third-Party Sharing:</span></strong> 
+            <span class="tr">Verileriniz tamamen sizin kontrolünüzdedir. Hiçbir koşulda reklam şirketleri, analiz platformları veya 3. şahıslarla veri paylaşımı yapılmaz.</span>
+            <span class="en">Your data is completely under your control. Under no circumstances is data shared with ad agencies, analytics platforms, or third parties.</span>
+          </li>
+        </ul>
       </div>
 
-      <!-- Dolan Bar (Butonların ve Kartın Belirgin Şekilde Altında) -->
-      <div class="progress-section">
-        <div class="progress-box">
-          <div class="progress-title">
-            <span class="tr">Hazırlık Süreci</span><span class="en">Preparation Process</span>
-            <span>65%</span>
-          </div>
-          <div class="progress-bar-bg">
-            <div class="progress-bar-fill"></div>
-          </div>
-        </div>
+      <!-- Bölüm 2: Temel Gizlilik Taahhüdü -->
+      <div class="guide-box">
+        <div class="kicker">02 / <span class="tr">GİZLİLİK TAAHHÜDÜ</span><span class="en">PRIVACY COMMITMENT</span></div>
+        <h2><span class="tr">2. Temel Gizlilik Taahhüdü</span><span class="en">2. Core Privacy Commitment</span></h2>
+        <p class="tr">Uygulama tarafından içeriden dışarıya ya da dışarıdan içeriye herhangi bir uzak sunucuyla bağlantı kurulmaz.</p>
+        <p class="en">The application does not establish any connection with remote servers, either outbound or inbound.</p>
+
+        <ul>
+          <li>
+            <span class="tr">Tüm ağ izleme işlemleri yerel VPN servisi (LocalVpnService) aracılığıyla cihaz üzerinde gerçekleşir.</span>
+            <span class="en">All network monitoring processes take place directly on the device via a local VPN service (LocalVpnService).</span>
+          </li>
+          <li>
+            <span class="tr">İnternet trafiğiniz harici bir VPN sunucusuna yönlendirilmez, tamamen cihaz içinde filtreler üzerinden değerlendirilir.</span>
+            <span class="en">Your internet traffic is never routed to an external VPN server; it is processed strictly through local filters on-device.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Bölüm 3: Erişim İzinleri ve Şeffaflık -->
+      <div class="guide-box">
+        <div class="kicker">03 / <span class="tr">ERİŞİM İZİNLERİ</span><span class="en">ACCESS PERMISSIONS</span></div>
+        <h2><span class="tr">3. Erişim İzinleri ve Şeffaflık</span><span class="en">3. Access Permissions and Transparency</span></h2>
+        <p class="tr">CyberWarden’ın işlevselliğini yerine getirebilmesi için gerekli olan izinler ve kullanım amaçları şunlardır:</p>
+        <p class="en">The permissions required for CyberWarden to perform its core functions and their intended purposes are as follows:</p>
+
+        <ul>
+          <li>
+            <strong><span class="tr">Yerel Ağ İzleme (Local VPN):</span><span class="en">Local Network Monitoring (Local VPN):</span></strong> 
+            <span class="tr">Cihazınızdaki uygulamaların gerçekleştirdiği ağ bağlantılarını tespit etmek için kullanılır.</span>
+            <span class="en">Used to detect network connections initiated by applications on your device.</span>
+          </li>
+          <li>
+            <strong><span class="tr">Erişilebilirlik Servisi (Accessibility Service):</span><span class="en">Accessibility Service:</span></strong> 
+            <span class="tr">Uygulamaların hassas izinleri (kamera, mikrofon, konum vb.) anlık olarak kullanıp kullanmadığını denetlemek amacıyla cihaz üzerinde çalışır.</span>
+            <span class="en">Runs locally on the device to monitor whether apps are actively accessing sensitive permissions (camera, microphone, location, etc.).</span>
+          </li>
+          <li>
+            <strong><span class="tr">Bildirim İzinleri:</span><span class="en">Notification Permissions:</span></strong> 
+            <span class="tr">Belirlediğiniz güvenlik kuralları ihlal edildiğinde veya şüpheli ağ etkinliği tespit edildiğinde sizi anlık olarak bilgilendirmek için kullanılır.</span>
+            <span class="en">Used to issue immediate alerts when defined security rules are violated or suspicious network activity is detected.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Bölüm 4: Veri Yönetimi ve Silme -->
+      <div class="guide-box">
+        <div class="kicker">04 / <span class="tr">VERİ YÖNETİMİ</span><span class="en">DATA MANAGEMENT</span></div>
+        <h2><span class="tr">4. Veri Yönetimi ve Silme</span><span class="en">4. Data Management and Deletion</span></h2>
+        <p class="tr">Cihazınızdaki tüm günlükler ve yapılandırmalar sizin kontrolünüzdedir:</p>
+        <p class="en">All logs and configurations stored on your device remain entirely under your control:</p>
+
+        <ul>
+          <li>
+            <span class="tr">İstediğiniz zaman uygulama ayarlarından geçmiş logları ve yedekleri tamamen temizleyebilirsiniz.</span>
+            <span class="en">You can clear past logs and backups completely from the application settings at any time.</span>
+          </li>
+          <li>
+            <span class="tr">CyberWarden uygulamasını cihazınızdan kaldırdığınızda, SQLite veritabanı ve ilişkilendirilmiş tüm yerel veriler otomatik ve kalıcı olarak silinir.</span>
+            <span class="en">When CyberWarden is uninstalled, the SQLite database and all associated local data are automatically and permanently purged.</span>
+          </li>
+        </ul>
       </div>
 
     </div>
@@ -418,7 +379,7 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <div class="footer-brand">docs.abdulkadirgungor.com</div>
+    <div class="footer-brand">docs.abdulkadirgungor.com/apps/android/cyberwarden</div>
     <div class="footer-copy">
       <span class="year-name">2026 © <a href="https://abdulkadirgungor.com/" target="_blank" rel="noopener" class="tr">Abdulkadir Güngör</a><a href="https://abdulkadirgungor.com/en/" target="_blank" rel="noopener" class="en">Abdulkadir Güngör</a></span>
       <span class="tr">Tüm hakları saklıdır</span>
@@ -439,7 +400,7 @@
     var current = document.body.getAttribute('data-theme');
     setTheme(current === 'dark' ? 'light' : 'dark');
   }
-  var ICON_SUN = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"></circle><line x1="12" y1="2.5" x2="12" y2="5.2"></line><line x1="12" y1="18.8" x2="12" y2="21.5"></line><line x1="2.5" y1="12" x2="5.2" y2="12"></line><line x1="18.8" y1="12" x2="21.5" y2="12"></line><line x1="5.1" y1="5.1" x2="7" y2="7"></line><line x1="17" y1="17" x2="18.9" y2="18.9"></line><line x1="18.9" y1="5.1" x2="17" y2="7"></line><line x1="7" y1="17" x2="5.1" y2="18.9"></line></svg>';
+  var ICON_SUN = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"></circle><line x1="12" y1="2.5" x2="12" y2="5.2"></line><line x1="12" y1="18.8" x2="12" y2="21.5"></line><line x1="2.5" y1="12" x2="5.2" y2="12"></line><line x1="18.8" y1="12" x2="21.5" y2="21.5"></line><line x1="5.1" y1="5.1" x2="7" y2="7"></line><line x1="17" y1="17" x2="18.9" y2="18.9"></line><line x1="18.9" y1="5.1" x2="17" y2="7"></line><line x1="7" y1="17" x2="5.1" y2="18.9"></line></svg>';
   var ICON_MOON = '<svg viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"></path></svg>';
   function setTheme(theme){
     document.body.setAttribute('data-theme', theme);
