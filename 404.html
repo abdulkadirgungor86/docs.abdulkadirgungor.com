@@ -192,13 +192,14 @@
     .footer-inner{flex-direction:column;align-items:flex-start;}
     .footer-copy{text-align:left;}
   }
-  @media (max-width:520px){
+@media (max-width:520px){
     .wrap{padding:0 18px;}
     .error-wrap{padding-top:36px;padding-bottom:36px;}
     .lang-toggle button .code{display:none;}
     .lang-toggle button{padding:7px 9px;}
     .lang-toggle button .flag{font-size:18px;}
     .brand .name{font-size:12.5px;}
+    .brand .name .dim{display:none;} /* Eklenen kural: Mobil ekranda domain uzantısını gizler */
     .index-card{transform:rotate(0deg);margin-right:6px;}
     .stamp{top:-12px;right:-6px;width:64px;height:64px;font-size:8px;}
     .hero-actions{flex-direction:column;align-self:stretch;}
