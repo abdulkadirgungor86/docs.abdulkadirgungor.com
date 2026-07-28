@@ -271,8 +271,8 @@
 	  
      <div class="hero-grid">
 		<p class="lede-date" style="font-size: 0.75rem;">
-		  <span class="tr">Son Güncelleme Tarihi: 24 Temmuz 2026</span>
-		  <span class="en">Last Updated: July 24, 2026</span>
+		  <span class="tr">Son Güncelleme Tarihi: 28 Temmuz 2026</span>
+		  <span class="en">Last Updated: July 28, 2026</span>
 		</p>
     </div>
   </section>
@@ -358,23 +358,34 @@
         <p class="tr">Uygulamanın ihtiyaç duyduğu Android izinleri yalnızca izleme ve güvenlik alarm işlevleri için kullanılır:</p>
         <p class="en">Android permissions requested by the application are used exclusively for monitoring and security alerting functions:</p>
 
-        <ul>
+        <ol>
           <li>
-            <strong><span class="tr">Erişilebilirlik ve Kullanım İstatistikleri:</span><span class="en">Accessibility and Usage Statistics:</span></strong> 
-            <span class="tr">Hassas donanım ve izin erişimlerini tespit etmek.</span>
-            <span class="en">Used to detect sensitive hardware and permission access events.</span>
+            <strong><span class="tr">Erişilebilirlik Servisi (Accessibility Service):</span><span class="en">Accessibility Service:</span></strong>
+            <span class="tr">Ön planda çalışan uygulamaların tespit edilmesi, hassas izin (kamera, mikrofon, konum vb.) erişimlerinin canlı olarak izlenmesi ve alarm kurallarının çalıştırılması için gereklidir.</span>
+            <span class="en">Required for detecting foreground apps, monitoring sensitive permission usage (camera, microphone, location) in real-time, and executing alarm rules.</span>
           </li>
           <li>
-            <strong><span class="tr">Yerel VPN Servisi (VpnService):</span><span class="en">Local VPN Service (VpnService):</span></strong> 
-            <span class="tr">İnternet trafiğinizi tamamen cihaz içinde (lokal olarak) analiz etmek. Trafiğiniz hiçbir harici VPN sunucusuna yönlendirilmez.</span>
-            <span class="en">Used to analyze network traffic completely on-device (locally). Your traffic is never routed to an external VPN server.</span>
+            <strong><span class="tr">Kullanım Erişimi (Usage Access - PACKAGE_USAGE_STATS):</span><span class="en">Usage Access (PACKAGE_USAGE_STATS):</span></strong>
+            <span class="tr">Bir bağlantının hangi uygulamaya ait olduğu, port/UID eşleşmesiyle kesin olarak belirlenemediğinde, en olası uygulamayı tahmin etmek için kullanılan opsiyonel bir izindir.</span>
+            <span class="en">"It is an optional permission used to guess the most likely app when the app a connection belongs to cannot be determined with certainty through port/UID matching."</span>
           </li>
           <li>
-            <strong><span class="tr">Bildirimler ve Ön Plan Servisleri:</span><span class="en">Notifications and Foreground Services:</span></strong> 
-            <span class="tr">Anlık güvenlik alarmları üretmek ve kesintisiz koruma sağlamak.</span>
-            <span class="en">Used to issue real-time security alerts and maintain uninterrupted protection.</span>
+            <strong><span class="tr">Yerel VPN İzni (Local VpnService):</span><span class="en">Local VPN Service (Local VpnService):</span></strong>
+            <span class="tr">Cihazınızdan çıkan ve giren ağ paketlerini (TCP/UDP) yerelde analiz etmek için kullanılır. İnternet trafiğiniz harici bir sunucuya yönlendirilmez, tamamen cihaz üzerinde işlenir.</span>
+            <span class="en">Used to analyze incoming and outgoing network packets (TCP/UDP) locally. Traffic is never routed to external servers; it is processed strictly on-device.</span>
           </li>
-        </ul>
+		  <li>
+            <strong><span class="tr">Bildirim İzni:</span><span class="en">Notification Permission:</span></strong>
+            <span class="tr">Arka planda çalışan servislerin bildirimlerini göstermek veya alarm kurallarının tetiklenmesi durumunda kullanıcıyı anlık olarak bilgilendirmek için gereklidir.</span>
+            <span class="en">Required to notify the user in real time when background services display notifications or when alarm rules are triggered.</span>
+          </li>	
+          <li>
+            <strong><span class="tr">Pil Optimizasyonu İstisnası:</span><span class="en">Battery Optimization Exception:</span></strong>
+            <span class="tr">Arka plan servislerinin (Master Monitor) Android işletim sistemi tarafından uyku modunda kapatılmasını önler ve kesintisiz güvenlik izlemesi sağlar.</span>
+            <span class="en">Prevents background services (Master Monitor) from being killed by Android system sleep modes, ensuring uninterrupted security monitoring.</span>
+          </li>
+        </ol>
+	
       </div>
 
       <!-- Bölüm 6: Kullanıcı Hakları -->
